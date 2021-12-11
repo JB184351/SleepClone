@@ -18,12 +18,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         pageViewController?.delegate = self
         pageViewController?.dataSource = self
+        setupPageViewController()
     }
     
     private func setupPageViewController() {
         self.pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         
-        self.pageViewController?.view.backgroundColor = .clear
+        self.pageViewController?.view.backgroundColor = .white
         self.pageViewController?.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         
         self.addChild(self.pageViewController!)
