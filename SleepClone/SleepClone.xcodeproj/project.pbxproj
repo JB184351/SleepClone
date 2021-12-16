@@ -15,6 +15,10 @@
 		C212F48927651D270030FFC7 /* SleepCloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C212F48827651D270030FFC7 /* SleepCloneTests.swift */; };
 		C212F49327651D270030FFC7 /* SleepCloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C212F49227651D270030FFC7 /* SleepCloneUITests.swift */; };
 		C212F49527651D270030FFC7 /* SleepCloneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C212F49427651D270030FFC7 /* SleepCloneUITestsLaunchTests.swift */; };
+		C217E3982769BC99002143A4 /* SleepStoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C217E3972769BC99002143A4 /* SleepStoriesViewController.swift */; };
+		C217E39B2769BCCB002143A4 /* SongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C217E39A2769BCCB002143A4 /* SongsViewController.swift */; };
+		C217E39D2769BCEB002143A4 /* AdvancedFeaturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C217E39C2769BCEB002143A4 /* AdvancedFeaturesViewController.swift */; };
+		C217E39F2769BD08002143A4 /* RatingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C217E39E2769BD08002143A4 /* RatingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		C212F48E27651D270030FFC7 /* SleepCloneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SleepCloneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C212F49227651D270030FFC7 /* SleepCloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepCloneUITests.swift; sourceTree = "<group>"; };
 		C212F49427651D270030FFC7 /* SleepCloneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepCloneUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C217E3972769BC99002143A4 /* SleepStoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStoriesViewController.swift; sourceTree = "<group>"; };
+		C217E39A2769BCCB002143A4 /* SongsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsViewController.swift; sourceTree = "<group>"; };
+		C217E39C2769BCEB002143A4 /* AdvancedFeaturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedFeaturesViewController.swift; sourceTree = "<group>"; };
+		C217E39E2769BD08002143A4 /* RatingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RatingsViewController.swift; path = SleepClone/RatingsViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +107,7 @@
 			children = (
 				C212F47127651D260030FFC7 /* AppDelegate.swift */,
 				C212F47327651D260030FFC7 /* SceneDelegate.swift */,
-				C212F47527651D260030FFC7 /* ViewController.swift */,
+				C217E3992769BCA1002143A4 /* ViewControllers */,
 				C212F47A27651D270030FFC7 /* Assets.xcassets */,
 				C212F47C27651D270030FFC7 /* LaunchScreen.storyboard */,
 				C212F47F27651D270030FFC7 /* Info.plist */,
@@ -122,6 +130,18 @@
 				C212F49427651D270030FFC7 /* SleepCloneUITestsLaunchTests.swift */,
 			);
 			path = SleepCloneUITests;
+			sourceTree = "<group>";
+		};
+		C217E3992769BCA1002143A4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C212F47527651D260030FFC7 /* ViewController.swift */,
+				C217E3972769BC99002143A4 /* SleepStoriesViewController.swift */,
+				C217E39A2769BCCB002143A4 /* SongsViewController.swift */,
+				C217E39C2769BCEB002143A4 /* AdvancedFeaturesViewController.swift */,
+				C217E39E2769BD08002143A4 /* RatingsViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,9 +274,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C217E3982769BC99002143A4 /* SleepStoriesViewController.swift in Sources */,
 				C212F47627651D260030FFC7 /* ViewController.swift in Sources */,
+				C217E39F2769BD08002143A4 /* RatingsViewController.swift in Sources */,
+				C217E39B2769BCCB002143A4 /* SongsViewController.swift in Sources */,
 				C212F47227651D260030FFC7 /* AppDelegate.swift in Sources */,
 				C212F47427651D260030FFC7 /* SceneDelegate.swift in Sources */,
+				C217E39D2769BCEB002143A4 /* AdvancedFeaturesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
