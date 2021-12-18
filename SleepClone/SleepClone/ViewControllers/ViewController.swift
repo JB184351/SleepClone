@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    private var pageViewController: UIPageViewController?
+    private var pageViewController =  UIPageViewController()
     private var subscriptionViewController = UIViewController()
     private let dataSource = ["One", "Two", "Three", "Four"]
     private var allViewControllers = [UIViewController]()
@@ -24,20 +24,27 @@ class ViewController: UIViewController {
     private func setupPageViewController() {
         self.pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         
-        pageViewController?.delegate = self
-        pageViewController?.dataSource = self
+        pageViewController.delegate = self
+        pageViewController.dataSource = self
         
-        self.pageViewController?.view.backgroundColor = .clear
-        self.pageViewController?.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        self.pageViewController.view.backgroundColor = .clear
         
-        self.addChild(self.pageViewController!)
+        // Remember to add to subview before adding constraints
+        self.view.addSubview(self.pageViewController.view)
         
-        self.view.addSubview(self.pageViewController!.view)
+        self.pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
         
-        self.pageViewController?.didMove(toParent: self)
+        self.pageViewController.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        self.pageViewController.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        self.pageViewController.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        self.pageViewController.view.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        
+        self.addChild(self.pageViewController)
+        
+        self.pageViewController.didMove(toParent: self)
         
         if let firstViewController = allViewControllers.first {
-            self.pageViewController?.setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
+            self.pageViewController.setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
         }
     }
     
