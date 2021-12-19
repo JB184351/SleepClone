@@ -7,18 +7,20 @@
 
 import UIKit
 
-//protocol PageDelegate: AnyObject {
-//    func didUpdatePageIndicator()
-//}
+protocol PageDelegate: AnyObject {
+    func didUpdatePageIndicator(with index: Int)
+}
 
 class ViewController: UIViewController {
     
     private var pageViewController =  UIPageViewController()
     private var allViewControllers = [UIViewController]()
     private var pageControl = UIPageControl()
+    private weak var pageControlDelegate: PageDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .yellow
         populateDataSource()
         setupPageViewController()
         setupPageControl()
@@ -59,11 +61,14 @@ class ViewController: UIViewController {
         self.pageControl.leadingAnchor.constraint(equalTo: self.pageViewController.view.leadingAnchor).isActive = true
         self.pageControl.trailingAnchor.constraint(equalTo: self.pageViewController.view.trailingAnchor).isActive = true
         self.pageControl.bottomAnchor.constraint(equalTo: self.pageViewController.view.bottomAnchor).isActive = true
-        self.pageControl.topAnchor.constraint(equalTo: self.pageViewController.view.topAnchor, constant: 50).isActive = true
+        self.pageControl.topAnchor.constraint(equalTo: self.pageViewController.view.topAnchor, constant: 100).isActive = true
     }
     
     func setupPageControl() {
         pageControl.backgroundColor = .red
+        
+        let invertView = CGAffineTransform(scaleX: 1, y: -1)
+        pageControl.transform = invertView
     }
     
     func populateDataSource() {
@@ -126,6 +131,8 @@ extension ViewController: UIPageViewControllerDataSource {
 }
 
 extension ViewController: UIPageViewControllerDelegate {
-    
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+//        if let currentIndex = allViewControllers.firstIndex(of: pageViewController.viewControllers?.first)
+    }
 }
 
