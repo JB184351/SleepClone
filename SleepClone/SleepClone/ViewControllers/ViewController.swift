@@ -7,18 +7,21 @@
 
 import UIKit
 
+//protocol PageDelegate: AnyObject {
+//    func didUpdatePageIndicator()
+//}
+
 class ViewController: UIViewController {
     
     private var pageViewController =  UIPageViewController()
-    private var subscriptionViewController = UIViewController()
-    private let dataSource = ["One", "Two", "Three", "Four"]
     private var allViewControllers = [UIViewController]()
-    private var currentIndex = 0
+    private var pageControl = UIPageControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         populateDataSource()
         setupPageViewController()
+        setupPageControl()
     }
     
     private func setupPageViewController() {
@@ -30,14 +33,10 @@ class ViewController: UIViewController {
         self.pageViewController.view.backgroundColor = .clear
         
         // Remember to add to subview before adding constraints
-        self.view.addSubview(self.pageViewController.view)
+        self.view.addSubview(pageControl)
+        self.pageControl.addSubview(pageViewController.view)
         
-        self.pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.pageViewController.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        self.pageViewController.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        self.pageViewController.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        self.pageViewController.view.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        setupConstraints()
         
         self.addChild(self.pageViewController)
         
@@ -46,6 +45,25 @@ class ViewController: UIViewController {
         if let firstViewController = allViewControllers.first {
             self.pageViewController.setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
         }
+    }
+    
+    func setupConstraints() {
+        self.pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        self.pageControl.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.pageViewController.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        self.pageViewController.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        self.pageViewController.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        self.pageViewController.view.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        
+        self.pageControl.leadingAnchor.constraint(equalTo: self.pageViewController.view.leadingAnchor).isActive = true
+        self.pageControl.trailingAnchor.constraint(equalTo: self.pageViewController.view.trailingAnchor).isActive = true
+        self.pageControl.bottomAnchor.constraint(equalTo: self.pageViewController.view.bottomAnchor).isActive = true
+        self.pageControl.topAnchor.constraint(equalTo: self.pageViewController.view.topAnchor, constant: 50).isActive = true
+    }
+    
+    func setupPageControl() {
+        pageControl.backgroundColor = .red
     }
     
     func populateDataSource() {
@@ -70,7 +88,7 @@ extension ViewController: UIPageViewControllerDataSource {
     }
     
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        return currentIndex
+        return 0
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
