@@ -7,71 +7,63 @@
 
 import UIKit
 
-protocol PageDelegate: AnyObject {
-    func didUpdatePageIndicator(with index: Int)
-}
-
 class ViewController: UIViewController {
     
-    private var pageViewController =  UIPageViewController()
     private var allViewControllers = [UIViewController]()
+    private var collectionView: UICollectionView!
     private var pageControl = UIPageControl()
-    private weak var pageControlDelegate: PageDelegate?
+    
+    let colors: [UIColor] = [.red, .green, .blue, .yellow]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .yellow
         populateDataSource()
-        setupPageViewController()
-        setupPageControl()
+        setupCollectionView()
+        registerCells()
+        collectionView.reloadData()
     }
     
-    private func setupPageViewController() {
-        self.pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+    private func setupCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: self.view.frame.width, height: 500)
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        layout.scrollDirection = .horizontal
         
-        pageViewController.delegate = self
-        pageViewController.dataSource = self
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
-        self.pageViewController.view.backgroundColor = .clear
+        self.view.addSubview(collectionView)
         
-        // Remember to add to subview before adding constraints
-        self.view.addSubview(pageControl)
-        self.pageControl.addSubview(pageViewController.view)
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
         
         setupConstraints()
         
-        self.addChild(self.pageViewController)
+        self.collectionView.isPagingEnabled = true
+        collectionView.contentOffset = .zero
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.contentInsetAdjustmentBehavior = .never
         
-        self.pageViewController.didMove(toParent: self)
-        
-        if let firstViewController = allViewControllers.first {
-            self.pageViewController.setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
-        }
+        self.collectionView.backgroundColor = .orange
     }
     
-    func setupConstraints() {
-        self.pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        self.pageControl.translatesAutoresizingMaskIntoConstraints = false
+    private func setupConstraints() {
+        self.collectionView.translatesAutoresizingMaskIntoConstraints = false
         
-        self.pageViewController.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        self.pageViewController.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        self.pageViewController.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        self.pageViewController.view.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        self.collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        self.collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        self.collectionView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
         
-        self.pageControl.leadingAnchor.constraint(equalTo: self.pageViewController.view.leadingAnchor).isActive = true
-        self.pageControl.trailingAnchor.constraint(equalTo: self.pageViewController.view.trailingAnchor).isActive = true
-        self.pageControl.bottomAnchor.constraint(equalTo: self.pageViewController.view.bottomAnchor).isActive = true
-        self.pageControl.topAnchor.constraint(equalTo: self.pageViewController.view.topAnchor, constant: 100).isActive = true
+        
+        self.collectionView.heightAnchor.constraint(equalToConstant: 500).isActive = true
     }
     
-    func setupPageControl() {
-        pageControl.backgroundColor = .red
-        
-        let invertView = CGAffineTransform(scaleX: 1, y: -1)
-        pageControl.transform = invertView
+    private func registerCells() {
+        collectionView.register(SleepStoriesCell.self, forCellWithReuseIdentifier: "sleepStoriesCell")
     }
     
-    func populateDataSource() {
+    private func populateDataSource() {
         let sleepViewController = SleepStoriesViewController()
         let songsViewController = SongsViewController()
         let advancedFeaturesViewController = AdvancedFeaturesViewController()
@@ -86,53 +78,22 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController: UIPageViewControllerDataSource {
+extension ViewController: UICollectionViewDataSource {
     
-    func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return allViewControllers.count
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        colors.count
     }
     
-    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        return 0
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sleepStoriesCell", for: indexPath) as! SleepStoriesCell
+        cell.backgroundColor = colors[indexPath.row]
+        return cell
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let currentIndex = allViewControllers.firstIndex(of: viewController) else {
-            return nil
-        }
-        
-        let previousIndex = currentIndex - 1
-        
-        guard previousIndex >= 0 else {
-            return nil
-        }
-        
-        guard allViewControllers.count > previousIndex else {
-            return nil
-        }
-        
-        return allViewControllers[previousIndex]
-    }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let currentIndex = allViewControllers.firstIndex(of: viewController) else {
-            return nil
-        }
-        
-        let nextIndex = currentIndex + 1
-        
-        guard allViewControllers.count > nextIndex else {
-            return nil
-        }
-        
-        return allViewControllers[nextIndex]
-    }
     
 }
 
-extension ViewController: UIPageViewControllerDelegate {
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-//        if let currentIndex = allViewControllers.firstIndex(of: pageViewController.viewControllers?.first)
-    }
+extension ViewController: UICollectionViewDelegate {
+    
 }
-
