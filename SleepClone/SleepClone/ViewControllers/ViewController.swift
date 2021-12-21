@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         populateDataSource()
+        pageControl.numberOfPages = colors.count
         setupCollectionView()
         registerCells()
         collectionView.reloadData()
@@ -33,6 +34,9 @@ class ViewController: UIViewController {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
         self.view.addSubview(collectionView)
+        self.collectionView.addSubview(pageControl)
+        
+        pageControl.backgroundColor = .clear
         
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
@@ -50,13 +54,19 @@ class ViewController: UIViewController {
     
     private func setupConstraints() {
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
+        self.pageControl.translatesAutoresizingMaskIntoConstraints = false
         
         self.collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         self.collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         self.collectionView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        
-        
         self.collectionView.heightAnchor.constraint(equalToConstant: 500).isActive = true
+        
+        self.pageControl.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        self.pageControl.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        self.pageControl.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+       
+        self.pageControl.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        
     }
     
     private func registerCells() {
