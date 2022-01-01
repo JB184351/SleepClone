@@ -9,7 +9,7 @@ import UIKit
 
 class SleepStoriesCell: UICollectionViewCell {
     
-    var someView = UIView()
+    private var someView = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
