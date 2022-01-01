@@ -9,23 +9,32 @@ import UIKit
 
 class SleepStoriesCell: UICollectionViewCell {
     
-    
+    var someView = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupUI()
-        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(with: UIView) {
-        
+    func setup(with view: UIView) {
+        someView = view
+        setupUI()
     }
     
     private func setupUI() {
+        self.addSubview(someView)
+        setupConstraints()
+    }
+    
+    private func setupConstraints() {
+        someView.translatesAutoresizingMaskIntoConstraints = false
         
+        someView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        someView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        someView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        someView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
 }

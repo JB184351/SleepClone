@@ -13,12 +13,12 @@ class ViewController: UIViewController {
     private var collectionView: UICollectionView!
     private var pageControl = UIPageControl()
     
-    let colors: [UIColor] = [.red, .green, .blue, .yellow]
+    private var views: [UIView] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         populateDataSource()
-        pageControl.numberOfPages = colors.count
+        pageControl.numberOfPages = views.count
         setupCollectionView()
         registerCells()
         collectionView.reloadData()
@@ -64,7 +64,7 @@ class ViewController: UIViewController {
         self.pageControl.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         self.pageControl.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         self.pageControl.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-       
+        
         self.pageControl.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
     }
@@ -74,15 +74,9 @@ class ViewController: UIViewController {
     }
     
     private func populateDataSource() {
-        let sleepViewController = SleepStoriesViewController()
-        let songsViewController = SongsViewController()
-        let advancedFeaturesViewController = AdvancedFeaturesViewController()
-        let ratingsViewController = RatingsViewController()
+        let sleepStories = SleepStoriesView()
         
-        allViewControllers.append(sleepViewController)
-        allViewControllers.append(songsViewController)
-        allViewControllers.append(advancedFeaturesViewController)
-        allViewControllers.append(ratingsViewController)
+        views.append(sleepStories)
     }
     
     
@@ -91,13 +85,15 @@ class ViewController: UIViewController {
 extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        colors.count
+        views.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        let view = views[indexPath.row]
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sleepStoriesCell", for: indexPath) as! SleepStoriesCell
-        cell.backgroundColor = colors[indexPath.row]
+        cell.setup(with: view)
         return cell
     }
     
@@ -106,4 +102,10 @@ extension ViewController: UICollectionViewDataSource {
 
 extension ViewController: UICollectionViewDelegate {
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let width = scrollView.frame.width - (scrollView.contentInset.left * 2)
+        let index = scrollView.contentOffset.x / width
+        let roundedIndex = round(index)
+        self.pageControl.currentPage = Int(roundedIndex)
+    }
 }
