@@ -7,13 +7,18 @@
 
 import UIKit
 
-class SleepStoriesTableViewCell: UITableViewCell {
+class SleepStoriesCollectionViewCell: UICollectionViewCell {
 
     private var sleepStoryTitle = UILabel()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.contentView.addRoundedCorners()
     }
     
     private func setupUI() {
