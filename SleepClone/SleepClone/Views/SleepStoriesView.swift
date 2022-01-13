@@ -11,7 +11,7 @@ class SleepStoriesView: UIView {
 
     private var collectionView: UICollectionView!
     private var testLabel = UILabel()
-    private var sleepStories = [String]()
+    private var images = [UIImage]()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,17 +28,27 @@ class SleepStoriesView: UIView {
     }
     
     private func populateDataSource() {
-        sleepStories.append("The first one")
-        sleepStories.append("The second one")
+        images.append(UIImage(named: "test")!)
+        images.append(UIImage(named: "test")!)
+        images.append(UIImage(named: "test")!)
+        images.append(UIImage(named: "test")!)
+        images.append(UIImage(named: "test")!)
+        images.append(UIImage(named: "test")!)
+        images.append(UIImage(named: "test")!)
+        images.append(UIImage(named: "test")!)
+        images.append(UIImage(named: "test")!)
+        images.append(UIImage(named: "test")!)
+        images.append(UIImage(named: "test")!)
     }
     
     private func setupUI() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 8, right: 0)
-        layout.itemSize = CGSize(width: self.frame.width, height: 20)
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .gray
+        
+        self.backgroundColor = .gray
         
         self.addSubview(collectionView)
         setupConstraints()
@@ -51,37 +61,32 @@ class SleepStoriesView: UIView {
     private func setupConstraints() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
-        self.leadingAnchor.constraint(equalTo: self.collectionView.leadingAnchor).isActive = true
-        self.trailingAnchor.constraint(equalTo: self.collectionView.trailingAnchor).isActive = true
-        self.topAnchor.constraint(equalTo: self.collectionView.topAnchor).isActive = true
-        self.bottomAnchor.constraint(equalTo: self.collectionView.bottomAnchor).isActive = true
+        self.collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
+        self.collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
+        self.collectionView.topAnchor.constraint(equalTo: self.topAnchor, constant: 50).isActive = true
+        self.collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
 }
 
 extension SleepStoriesView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sleepStories.count
+        return images.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let sleepStory = sleepStories[indexPath.row]
+        let sleepStory = images[indexPath.row]
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sleepStoriesTableViewCell", for: indexPath) as! SleepStoriesCollectionViewCell
-        cell.backgroundColor = .blue
         cell.setup(with: sleepStory)
         return cell
     }
 
 }
 
-extension SleepStoriesView: UICollectionViewDelegate {
-    
-}
-
 extension SleepStoriesView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.frame.width, height: 50)
+        return CGSize(width: self.frame.width, height: 75)
     }
 }
 

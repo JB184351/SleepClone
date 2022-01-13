@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.contentInsetAdjustmentBehavior = .never
         
-        self.collectionView.backgroundColor = .orange
+        self.collectionView.backgroundColor = .gray
     }
     
     private func setupConstraints() {
@@ -64,7 +64,6 @@ class ViewController: UIViewController {
         self.pageControl.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         self.pageControl.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         self.pageControl.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        
         self.pageControl.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
     }
@@ -89,7 +88,6 @@ extension ViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let view = views[indexPath.row]
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sleepStoriesCell", for: indexPath) as! SleepStoriesCell

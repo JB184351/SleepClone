@@ -34,7 +34,7 @@ class SleepStoriesCell: UICollectionViewCell {
         
         someView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         someView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        someView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        someView.topAnchor.constraint(equalTo: self.topAnchor, constant: 50).isActive = true
         someView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
 }
