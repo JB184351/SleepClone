@@ -10,16 +10,14 @@ import UIKit
 class SleepStoriesCollectionViewCell: UICollectionViewCell {
     
     private var imageView = UIImageView()
+    private var stackView = UIStackView()
     private var playButton = UIButton()
+    private var roundedCornerView = UIView()
+    private var isPlaying = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.contentView.addRoundedCorners()
     }
     
     private func setupUI() {
@@ -27,20 +25,38 @@ class SleepStoriesCollectionViewCell: UICollectionViewCell {
         playButton.tintColor = .white
         playButton.addTarget(self, action: #selector(buttonAction(_ :)), for: .touchUpInside)
         
-        self.addSubview(imageView)
-        self.addSubview(playButton)
+        self.roundedCornerView.addRoundedCorners()
+        
+        self.contentView.addSubview(stackView)
+        
+        self.contentView.addSubview(roundedCornerView)
+        self.contentView.addSubview(imageView)
+        self.contentView.addSubview(playButton)
         setupConstraints()
     }
     
-    @objc private func buttonAction(_ sender: UIButton!) {
-        sender.setImage(UIImage(systemName: "pause.circle.fill"), for: .normal)
+    @objc private func buttonAction(_ sender: UIButton) {
+        isPlaying = !isPlaying
+        let imageName = isPlaying ? "pause.circle.fill" : "play.circle.fill"
+        
+        sender.setImage(UIImage(systemName: imageName), for: .normal)
         sender.tintColor = .white
-        print("Pressed Button")
     }
     
     private func setupConstraints() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         playButton.translatesAutoresizingMaskIntoConstraints = false
+        roundedCornerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        stackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        
+        roundedCornerView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        roundedCornerView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        roundedCornerView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        roundedCornerView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         
         imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
@@ -54,8 +70,7 @@ class SleepStoriesCollectionViewCell: UICollectionViewCell {
     }
     
     public func setup(with sleepStoryImage: UIImage) {
-        //        imageView.image = sleepStoryImage
-        imageView.backgroundColor = .red
+        imageView.image = sleepStoryImage
         setupUI()
     }
     
