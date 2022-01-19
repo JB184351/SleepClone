@@ -10,7 +10,6 @@ import UIKit
 class SleepStoriesCollectionViewCell: UICollectionViewCell {
     
     private var imageView = UIImageView()
-    private var stackView = UIStackView()
     private var playButton = UIButton()
     private var roundedCornerView = UIView()
     private var isPlaying = false
@@ -26,9 +25,7 @@ class SleepStoriesCollectionViewCell: UICollectionViewCell {
         playButton.addTarget(self, action: #selector(buttonAction(_ :)), for: .touchUpInside)
         
         self.roundedCornerView.addRoundedCorners()
-        
-        self.contentView.addSubview(stackView)
-        
+                
         self.contentView.addSubview(roundedCornerView)
         self.contentView.addSubview(imageView)
         self.contentView.addSubview(playButton)
@@ -47,11 +44,7 @@ class SleepStoriesCollectionViewCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         playButton.translatesAutoresizingMaskIntoConstraints = false
         roundedCornerView.translatesAutoresizingMaskIntoConstraints = false
-        
-        stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        stackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+
         
         roundedCornerView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         roundedCornerView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
