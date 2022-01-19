@@ -9,7 +9,7 @@ import UIKit
 
 class SleepStoriesCollectionViewCell: UICollectionViewCell {
     
-    private var imageView = UIImageView()
+    private var soundImageView = UIImageView()
     private var playButton = UIButton()
     private var roundedCornerView = UIView()
     private var isPlaying = false
@@ -25,9 +25,9 @@ class SleepStoriesCollectionViewCell: UICollectionViewCell {
         playButton.addTarget(self, action: #selector(buttonAction(_ :)), for: .touchUpInside)
         
         self.roundedCornerView.addRoundedCorners()
-                
+        
         self.contentView.addSubview(roundedCornerView)
-        self.contentView.addSubview(imageView)
+        self.contentView.addSubview(soundImageView)
         self.contentView.addSubview(playButton)
         setupConstraints()
     }
@@ -41,29 +41,29 @@ class SleepStoriesCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupConstraints() {
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+        soundImageView.translatesAutoresizingMaskIntoConstraints = false
         playButton.translatesAutoresizingMaskIntoConstraints = false
         roundedCornerView.translatesAutoresizingMaskIntoConstraints = false
-
+        
         
         roundedCornerView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         roundedCornerView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         roundedCornerView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         roundedCornerView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         
-        imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        imageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        soundImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        soundImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        soundImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        soundImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         
-        playButton.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: self.imageView.frame.width / 2).isActive = true
-        playButton.trailingAnchor.constraint(equalTo: imageView.trailingAnchor).isActive = true
-        playButton.topAnchor.constraint(equalTo: imageView.topAnchor, constant: imageView.frame.height / 2).isActive = true
-        playButton.bottomAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
+        playButton.leadingAnchor.constraint(equalTo: soundImageView.leadingAnchor, constant: self.soundImageView.frame.width / 2).isActive = true
+        playButton.trailingAnchor.constraint(equalTo: soundImageView.trailingAnchor).isActive = true
+        playButton.topAnchor.constraint(equalTo: soundImageView.topAnchor, constant: soundImageView.frame.height / 2).isActive = true
+        playButton.bottomAnchor.constraint(equalTo: soundImageView.bottomAnchor).isActive = true
     }
     
     public func setup(with sleepStoryImage: UIImage) {
-        imageView.image = sleepStoryImage
+        soundImageView.image = sleepStoryImage
         setupUI()
     }
     

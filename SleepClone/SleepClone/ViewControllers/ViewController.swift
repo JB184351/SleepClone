@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.contentInsetAdjustmentBehavior = .never
         
-        self.collectionView.backgroundColor = .gray
+        self.collectionView.backgroundColor = .blue
     }
     
     private func setupConstraints() {

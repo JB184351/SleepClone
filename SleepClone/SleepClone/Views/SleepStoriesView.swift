@@ -46,9 +46,9 @@ class SleepStoriesView: UIView {
         layout.scrollDirection = .vertical
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .gray
+        collectionView.backgroundColor = .blue
         
-        self.backgroundColor = .gray
+        self.backgroundColor = .blue
         
         self.addSubview(collectionView)
         setupConstraints()
