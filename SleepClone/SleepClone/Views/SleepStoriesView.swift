@@ -9,7 +9,7 @@ import UIKit
 
 class SleepStoriesView: UIView {
 
-    private var collectionView: UICollectionView!
+    private var tableView: UITableView!
     private var testLabel = UILabel()
     private var images = [UIImage]()
     
@@ -17,10 +17,10 @@ class SleepStoriesView: UIView {
         super.init(frame: frame)
         populateDataSource()
         setupUI()
-        collectionView.dataSource = self
-        collectionView.delegate = self
+        tableView.dataSource = self
+        tableView.delegate = self
         registerCells()
-        self.collectionView.reloadData()
+        self.tableView.reloadData()
     }
     
     required init?(coder: NSCoder) {
@@ -45,48 +45,63 @@ class SleepStoriesView: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .blue
+        tableView = UITableView(frame: .zero)
+        tableView.backgroundColor = .blue
         
         self.backgroundColor = .blue
         
-        self.addSubview(collectionView)
+        self.addSubview(tableView)
         setupConstraints()
     }
     
     private func registerCells() {
-        collectionView.register(SleepStoriesCollectionViewCell.self, forCellWithReuseIdentifier: "sleepStoriesTableViewCell")
+        tableView.register(SleepStoriesTableViewCell.self, forCellReuseIdentifier: "sleepStoriesTableViewCell")
     }
     
     private func setupConstraints() {
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         
-        self.collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
-        self.collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
-        self.collectionView.topAnchor.constraint(equalTo: self.topAnchor, constant: 50).isActive = true
-        self.collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        self.tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
+        self.tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
+        self.tableView.topAnchor.constraint(equalTo: self.topAnchor, constant: 50).isActive = true
+        self.tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
 }
 
-extension SleepStoriesView: UICollectionViewDataSource {
+extension SleepStoriesView: UITableViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return images.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let sleepStory = images[indexPath.row]
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sleepStoriesTableViewCell", for: indexPath) as! SleepStoriesCollectionViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "sleepStoriesTableViewCell", for: indexPath) as! SleepStoriesTableViewCell
         cell.setup(with: sleepStory)
         return cell
     }
-
 }
 
-extension SleepStoriesView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.frame.width, height: 75)
+extension SleepStoriesView: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let unlockView = UnlockMessageView()
+        unlockView.headerLabel.text = "Unlock Doze"
+        unlockView.messageLabel.text = "Doze off with +100 sleep stories and mediations updated on a weekly basis"
+        
+        return unlockView
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 20))
+        view.backgroundColor = .clear
+        
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75
     }
 }
 

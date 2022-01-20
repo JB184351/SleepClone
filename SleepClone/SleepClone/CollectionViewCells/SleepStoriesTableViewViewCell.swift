@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SleepStoriesCollectionViewCell: UICollectionViewCell {
+class SleepStoriesTableViewCell: UITableViewCell {
     
     private var soundImageView = UIImageView()
     private var playButton = UIButton()
@@ -44,7 +44,6 @@ class SleepStoriesCollectionViewCell: UICollectionViewCell {
         soundImageView.translatesAutoresizingMaskIntoConstraints = false
         playButton.translatesAutoresizingMaskIntoConstraints = false
         roundedCornerView.translatesAutoresizingMaskIntoConstraints = false
-        
         
         roundedCornerView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         roundedCornerView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
