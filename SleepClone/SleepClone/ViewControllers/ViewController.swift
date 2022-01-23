@@ -73,11 +73,15 @@ class ViewController: UIViewController {
     }
     
     private func populateDataSource() {
-        let sleepStories = SleepStoriesView()
+        let sleepStoriesView = SleepStoriesView()
+        sleepStoriesView.messageText = "Doze off with +100 sleep stories and mediations updated on a weekly basis."
         
-        views.append(sleepStories)
+        let moreSleepStoriesView = SleepStoriesView()
+        moreSleepStoriesView.messageText = "Relax your body with +150 soothing music and nature sounds. Weekly new updates."
+        
+        views.append(sleepStoriesView)
+        views.append(moreSleepStoriesView)
     }
-    
     
 }
 

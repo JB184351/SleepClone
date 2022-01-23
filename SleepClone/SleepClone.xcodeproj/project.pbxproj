@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		30FC21592786AB0D00BA00AF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC21582786AB0D00BA00AF /* Extensions.swift */; };
-		C20416CE279902C0002925A9 /* UnlockMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20416CD279902C0002925A9 /* UnlockMessageView.swift */; };
+		C20416CE279902C0002925A9 /* DozeFeatureDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20416CD279902C0002925A9 /* DozeFeatureDescriptionView.swift */; };
 		C212F47227651D260030FFC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C212F47127651D260030FFC7 /* AppDelegate.swift */; };
 		C212F47427651D260030FFC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C212F47327651D260030FFC7 /* SceneDelegate.swift */; };
 		C212F47627651D260030FFC7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C212F47527651D260030FFC7 /* ViewController.swift */; };
@@ -46,7 +46,7 @@
 
 /* Begin PBXFileReference section */
 		30FC21582786AB0D00BA00AF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = TableViewCells/Extensions.swift; sourceTree = "<group>"; };
-		C20416CD279902C0002925A9 /* UnlockMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockMessageView.swift; sourceTree = "<group>"; };
+		C20416CD279902C0002925A9 /* DozeFeatureDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DozeFeatureDescriptionView.swift; sourceTree = "<group>"; };
 		C212F46E27651D260030FFC7 /* SleepClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C212F47127651D260030FFC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C212F47327651D260030FFC7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				C22B9C28277F8797002AEE31 /* SleepStoriesView.swift */,
-				C20416CD279902C0002925A9 /* UnlockMessageView.swift */,
+				C20416CD279902C0002925A9 /* DozeFeatureDescriptionView.swift */,
 				C22B9C2B2780E1E2002AEE31 /* SongView.swift */,
 			);
 			path = Views;
@@ -316,7 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C20416CE279902C0002925A9 /* UnlockMessageView.swift in Sources */,
+				C20416CE279902C0002925A9 /* DozeFeatureDescriptionView.swift in Sources */,
 				C217E3982769BC99002143A4 /* SleepStoriesViewController.swift in Sources */,
 				C22B9C2E2780E4E3002AEE31 /* SleepStoriesTableViewViewCell.swift in Sources */,
 				C212F47627651D260030FFC7 /* ViewController.swift in Sources */,

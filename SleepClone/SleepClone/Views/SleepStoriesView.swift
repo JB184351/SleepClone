@@ -13,6 +13,8 @@ class SleepStoriesView: UIView {
     private var testLabel = UILabel()
     private var images = [UIImage]()
     
+    public var messageText = String()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         populateDataSource()
@@ -46,8 +48,9 @@ class SleepStoriesView: UIView {
         layout.scrollDirection = .vertical
         
         tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.backgroundColor = .blue
         
+        //TODO: Update to actual color
+        tableView.backgroundColor = .blue
         self.backgroundColor = .blue
         
         self.addSubview(tableView)
@@ -86,11 +89,23 @@ extension SleepStoriesView: UITableViewDataSource {
 extension SleepStoriesView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let unlockView = UnlockMessageView()
+        //TODO: Configure Font and spacing
+        let unlockView = DozeFeatureDescriptionView()
         unlockView.headerLabel.text = "Unlock Doze"
-        unlockView.messageLabel.text = "Doze off with +100 sleep stories and mediations updated on a weekly basis"
+        unlockView.messageLabel.text = messageText
         
         return unlockView
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        //TODO: Configure Font and spacing
+        let moreMessaingLabel = UILabel()
+        moreMessaingLabel.text = "And many more..."
+        moreMessaingLabel.textAlignment = .left
+        moreMessaingLabel.textColor = .white
+        
+        
+        return moreMessaingLabel
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

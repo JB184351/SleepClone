@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UnlockMessageView: UIView {
+class DozeFeatureDescriptionView: UIView {
     
     var stackView = UIStackView()
     var headerLabel = UILabel()
