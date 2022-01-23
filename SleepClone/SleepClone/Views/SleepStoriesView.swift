@@ -45,7 +45,7 @@ class SleepStoriesView: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         
-        tableView = UITableView(frame: .zero)
+        tableView = UITableView(frame: .zero, style: .grouped)
         tableView.backgroundColor = .blue
         
         self.backgroundColor = .blue
@@ -91,13 +91,6 @@ extension SleepStoriesView: UITableViewDelegate {
         unlockView.messageLabel.text = "Doze off with +100 sleep stories and mediations updated on a weekly basis"
         
         return unlockView
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 20))
-        view.backgroundColor = .clear
-        
-        return view
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
