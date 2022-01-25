@@ -25,6 +25,9 @@
 		C22B9C2C2780E1E2002AEE31 /* SongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22B9C2B2780E1E2002AEE31 /* SongView.swift */; };
 		C22B9C2E2780E4E3002AEE31 /* SleepStoriesTableViewViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22B9C2D2780E4E3002AEE31 /* SleepStoriesTableViewViewCell.swift */; };
 		C27A43C327711F5900E1A846 /* SleepStoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A43C227711F5900E1A846 /* SleepStoriesCell.swift */; };
+		C2D93C6C279F877A000156A4 /* AdvancedFeaturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D93C6B279F877A000156A4 /* AdvancedFeaturesView.swift */; };
+		C2D93C6E279F87A5000156A4 /* AdvancedFeaturesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D93C6D279F87A5000156A4 /* AdvancedFeaturesTableViewCell.swift */; };
+		C2D93C70279F8B5A000156A4 /* AdvancedFeatureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D93C6F279F8B5A000156A4 /* AdvancedFeatureModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 		C22B9C2B2780E1E2002AEE31 /* SongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongView.swift; sourceTree = "<group>"; };
 		C22B9C2D2780E4E3002AEE31 /* SleepStoriesTableViewViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStoriesTableViewViewCell.swift; sourceTree = "<group>"; };
 		C27A43C227711F5900E1A846 /* SleepStoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStoriesCell.swift; sourceTree = "<group>"; };
+		C2D93C6B279F877A000156A4 /* AdvancedFeaturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedFeaturesView.swift; sourceTree = "<group>"; };
+		C2D93C6D279F87A5000156A4 /* AdvancedFeaturesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedFeaturesTableViewCell.swift; sourceTree = "<group>"; };
+		C2D93C6F279F8B5A000156A4 /* AdvancedFeatureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedFeatureModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +126,7 @@
 				30FC21582786AB0D00BA00AF /* Extensions.swift */,
 				C212F47127651D260030FFC7 /* AppDelegate.swift */,
 				C212F47327651D260030FFC7 /* SceneDelegate.swift */,
+				C2D93C71279F8B68000156A4 /* Models */,
 				C22B9C302780E501002AEE31 /* CollectionViewCells */,
 				C22B9C2F2780E4F2002AEE31 /* TableViewCells */,
 				C22B9C2A2780E1BE002AEE31 /* Views */,
@@ -164,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				C22B9C28277F8797002AEE31 /* SleepStoriesView.swift */,
+				C2D93C6B279F877A000156A4 /* AdvancedFeaturesView.swift */,
 				C20416CD279902C0002925A9 /* DozeFeatureDescriptionView.swift */,
 				C22B9C2B2780E1E2002AEE31 /* SongView.swift */,
 			);
@@ -173,6 +181,8 @@
 		C22B9C2F2780E4F2002AEE31 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				C22B9C2D2780E4E3002AEE31 /* SleepStoriesTableViewViewCell.swift */,
+				C2D93C6D279F87A5000156A4 /* AdvancedFeaturesTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -181,9 +191,16 @@
 			isa = PBXGroup;
 			children = (
 				C27A43C227711F5900E1A846 /* SleepStoriesCell.swift */,
-				C22B9C2D2780E4E3002AEE31 /* SleepStoriesTableViewViewCell.swift */,
 			);
 			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		C2D93C71279F8B68000156A4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C2D93C6F279F8B5A000156A4 /* AdvancedFeatureModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,12 +340,15 @@
 				C217E39F2769BD08002143A4 /* RatingsViewController.swift in Sources */,
 				C27A43C327711F5900E1A846 /* SleepStoriesCell.swift in Sources */,
 				C217E39B2769BCCB002143A4 /* SongsViewController.swift in Sources */,
+				C2D93C6E279F87A5000156A4 /* AdvancedFeaturesTableViewCell.swift in Sources */,
+				C2D93C70279F8B5A000156A4 /* AdvancedFeatureModel.swift in Sources */,
 				C22B9C29277F8797002AEE31 /* SleepStoriesView.swift in Sources */,
 				30FC21592786AB0D00BA00AF /* Extensions.swift in Sources */,
 				C212F47227651D260030FFC7 /* AppDelegate.swift in Sources */,
 				C22B9C2C2780E1E2002AEE31 /* SongView.swift in Sources */,
 				C212F47427651D260030FFC7 /* SceneDelegate.swift in Sources */,
 				C217E39D2769BCEB002143A4 /* AdvancedFeaturesViewController.swift in Sources */,
+				C2D93C6C279F877A000156A4 /* AdvancedFeaturesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

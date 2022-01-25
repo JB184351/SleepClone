@@ -79,8 +79,12 @@ class ViewController: UIViewController {
         let moreSleepStoriesView = SleepStoriesView()
         moreSleepStoriesView.messageText = "Relax your body with +150 soothing music and nature sounds. Weekly new updates."
         
+        let advancedFeaturesView = AdvancedFeaturesView()
+        advancedFeaturesView.messageText = "Enjoy advanced features like"
+        
         views.append(sleepStoriesView)
         views.append(moreSleepStoriesView)
+        views.append(advancedFeaturesView)
     }
     
 }

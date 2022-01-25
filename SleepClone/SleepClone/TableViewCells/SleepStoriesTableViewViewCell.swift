@@ -13,12 +13,7 @@ class SleepStoriesTableViewCell: UITableViewCell {
     private var playButton = UIButton()
     private var roundedCornerView = UIView()
     private var isPlaying = false
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        setupUI()
-    }
-    
+
     private func setupUI() {
         playButton.setImage(UIImage(systemName: "play.circle.fill"), for: .normal)
         playButton.tintColor = .white
