@@ -56,6 +56,7 @@ class SleepStoriesTableViewCell: UITableViewCell {
         playButton.bottomAnchor.constraint(equalTo: soundImageView.bottomAnchor).isActive = true
     }
     
+    //TODO: Pass in model
     public func setup(with sleepStoryImage: UIImage) {
         soundImageView.image = sleepStoryImage
         setupUI()

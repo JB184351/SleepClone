@@ -28,6 +28,9 @@
 		C2D93C6C279F877A000156A4 /* AdvancedFeaturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D93C6B279F877A000156A4 /* AdvancedFeaturesView.swift */; };
 		C2D93C6E279F87A5000156A4 /* AdvancedFeaturesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D93C6D279F87A5000156A4 /* AdvancedFeaturesTableViewCell.swift */; };
 		C2D93C70279F8B5A000156A4 /* AdvancedFeatureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D93C6F279F8B5A000156A4 /* AdvancedFeatureModel.swift */; };
+		C2D93C73279F967F000156A4 /* RatingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D93C72279F967F000156A4 /* RatingsView.swift */; };
+		C2D93C75279F98BF000156A4 /* RatingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D93C74279F98BF000156A4 /* RatingModel.swift */; };
+		C2D93C77279F996A000156A4 /* SleepStoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D93C76279F996A000156A4 /* SleepStoryModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +76,9 @@
 		C2D93C6B279F877A000156A4 /* AdvancedFeaturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedFeaturesView.swift; sourceTree = "<group>"; };
 		C2D93C6D279F87A5000156A4 /* AdvancedFeaturesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedFeaturesTableViewCell.swift; sourceTree = "<group>"; };
 		C2D93C6F279F8B5A000156A4 /* AdvancedFeatureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedFeatureModel.swift; sourceTree = "<group>"; };
+		C2D93C72279F967F000156A4 /* RatingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsView.swift; sourceTree = "<group>"; };
+		C2D93C74279F98BF000156A4 /* RatingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingModel.swift; sourceTree = "<group>"; };
+		C2D93C76279F996A000156A4 /* SleepStoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStoryModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +178,7 @@
 			children = (
 				C22B9C28277F8797002AEE31 /* SleepStoriesView.swift */,
 				C2D93C6B279F877A000156A4 /* AdvancedFeaturesView.swift */,
+				C2D93C72279F967F000156A4 /* RatingsView.swift */,
 				C20416CD279902C0002925A9 /* DozeFeatureDescriptionView.swift */,
 				C22B9C2B2780E1E2002AEE31 /* SongView.swift */,
 			);
@@ -199,6 +206,8 @@
 			isa = PBXGroup;
 			children = (
 				C2D93C6F279F8B5A000156A4 /* AdvancedFeatureModel.swift */,
+				C2D93C74279F98BF000156A4 /* RatingModel.swift */,
+				C2D93C76279F996A000156A4 /* SleepStoryModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -338,12 +347,15 @@
 				C22B9C2E2780E4E3002AEE31 /* SleepStoriesTableViewViewCell.swift in Sources */,
 				C212F47627651D260030FFC7 /* ViewController.swift in Sources */,
 				C217E39F2769BD08002143A4 /* RatingsViewController.swift in Sources */,
+				C2D93C73279F967F000156A4 /* RatingsView.swift in Sources */,
 				C27A43C327711F5900E1A846 /* SleepStoriesCell.swift in Sources */,
 				C217E39B2769BCCB002143A4 /* SongsViewController.swift in Sources */,
 				C2D93C6E279F87A5000156A4 /* AdvancedFeaturesTableViewCell.swift in Sources */,
+				C2D93C77279F996A000156A4 /* SleepStoryModel.swift in Sources */,
 				C2D93C70279F8B5A000156A4 /* AdvancedFeatureModel.swift in Sources */,
 				C22B9C29277F8797002AEE31 /* SleepStoriesView.swift in Sources */,
 				30FC21592786AB0D00BA00AF /* Extensions.swift in Sources */,
+				C2D93C75279F98BF000156A4 /* RatingModel.swift in Sources */,
 				C212F47227651D260030FFC7 /* AppDelegate.swift in Sources */,
 				C22B9C2C2780E1E2002AEE31 /* SongView.swift in Sources */,
 				C212F47427651D260030FFC7 /* SceneDelegate.swift in Sources */,
