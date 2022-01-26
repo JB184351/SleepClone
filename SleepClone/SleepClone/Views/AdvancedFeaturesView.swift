@@ -9,10 +9,16 @@ import UIKit
 
 class AdvancedFeaturesView: UIView {
     
+    //MARK: - Private Variables
+    
     private var tableView: UITableView!
     private var advancedFeatures = [AdvancedFeatureModel]()
     
+    //MARK: - Public Methods
+    
     public var messageText = String()
+    
+    //MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,6 +33,8 @@ class AdvancedFeaturesView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK: - Private Methods
     
     private func setupUI() {
         tableView = UITableView(frame: .zero, style: .grouped)
@@ -65,6 +73,8 @@ class AdvancedFeaturesView: UIView {
     }
 }
 
+//MARK: - TableView DataSource
+
 extension AdvancedFeaturesView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -82,6 +92,8 @@ extension AdvancedFeaturesView: UITableViewDataSource {
     
     
 }
+
+//MARK: - TableView Delegate
 
 extension AdvancedFeaturesView: UITableViewDelegate {
     

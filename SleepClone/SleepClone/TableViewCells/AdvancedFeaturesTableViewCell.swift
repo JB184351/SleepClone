@@ -9,9 +9,13 @@ import UIKit
 
 class AdvancedFeaturesTableViewCell: UITableViewCell {
 
+    //MARK: - Private Variables
+    
     private var stackView = UIStackView()
     private var advancedFeatureImageView = UIImageView()
     private var advancedFeatureLabel = UILabel()
+    
+    //MARK: - Private Methods
     
     private func setupUI() {
         stackView.axis = .horizontal
@@ -41,6 +45,8 @@ class AdvancedFeaturesTableViewCell: UITableViewCell {
         stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
 
     }
+    
+    //MARK: - Public Methods
     
     public func setup(with model: AdvancedFeatureModel) {
         advancedFeatureImageView.image = model.image

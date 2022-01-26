@@ -9,10 +9,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    //MARK: - Private Variables
+    
     private var allViewControllers = [UIViewController]()
     private var collectionView: UICollectionView!
     private var pageControl = UIPageControl()
-    
     private var views: [UIView] = []
     
     override func viewDidLoad() {
@@ -23,6 +24,8 @@ class ViewController: UIViewController {
         registerCells()
         collectionView.reloadData()
     }
+    
+    //MARK: - Private Methods
     
     private func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
@@ -89,6 +92,8 @@ class ViewController: UIViewController {
     
 }
 
+//MARK: - CollectionView DataSource
+
 extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -105,6 +110,8 @@ extension ViewController: UICollectionViewDataSource {
     
     
 }
+
+//MARK: - CollectionView Delegate
 
 extension ViewController: UICollectionViewDelegate {
     

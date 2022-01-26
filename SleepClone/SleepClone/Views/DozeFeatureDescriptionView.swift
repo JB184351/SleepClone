@@ -9,9 +9,13 @@ import UIKit
 
 class DozeFeatureDescriptionView: UIView {
     
-    var stackView = UIStackView()
-    var headerLabel = UILabel()
-    var messageLabel = UILabel()
+    //MARK: - Private Variables
+    
+    private var stackView = UIStackView()
+    private var headerLabel = UILabel()
+    private var messageLabel = UILabel()
+    
+    //MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,7 +26,9 @@ class DozeFeatureDescriptionView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupUI() {
+    //MARK: - Private Methods
+    
+    private func setupUI() {
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .fill
@@ -43,7 +49,7 @@ class DozeFeatureDescriptionView: UIView {
         setupConstraints()
     }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true

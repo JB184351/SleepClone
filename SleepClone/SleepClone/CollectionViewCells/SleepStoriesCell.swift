@@ -9,7 +9,11 @@ import UIKit
 
 class SleepStoriesCell: UICollectionViewCell {
     
+    //MARK: - Private Methods
+    
     private var someView = UIView()
+    
+    //MARK: - Init Methods
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -19,10 +23,7 @@ class SleepStoriesCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(with view: UIView) {
-        someView = view
-        setupUI()
-    }
+    //MARK: - Private Methods
     
     private func setupUI() {
         self.addSubview(someView)
@@ -36,5 +37,12 @@ class SleepStoriesCell: UICollectionViewCell {
         someView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         someView.topAnchor.constraint(equalTo: self.topAnchor, constant: 50).isActive = true
         someView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+    }
+    
+    //MARK: - Public Methods
+    
+    public func setup(with view: UIView) {
+        someView = view
+        setupUI()
     }
 }

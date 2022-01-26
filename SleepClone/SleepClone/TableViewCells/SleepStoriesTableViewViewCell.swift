@@ -9,11 +9,15 @@ import UIKit
 
 class SleepStoriesTableViewCell: UITableViewCell {
     
+    //MARK: - Private Variables
+    
     private var soundImageView = UIImageView()
     private var soundTitleLabel = UILabel()
     private var playButton = UIButton()
     private var roundedCornerView = UIView()
     private var isPlaying = false
+    
+    //MARK: - Private Methods
 
     private func setupUI() {
         playButton.setImage(UIImage(systemName: "play.circle.fill"), for: .normal)
@@ -68,7 +72,8 @@ class SleepStoriesTableViewCell: UITableViewCell {
         playButton.bottomAnchor.constraint(equalTo: soundImageView.bottomAnchor).isActive = true
     }
     
-    //TODO: Pass in model
+    //MARK: - Public Methods
+    
     public func setup(with model: SleepStoryModel) {
         soundImageView.image = model.image
         soundTitleLabel.text = model.title

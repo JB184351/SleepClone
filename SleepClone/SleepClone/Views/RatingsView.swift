@@ -9,6 +9,8 @@ import UIKit
 
 class RatingsView: UIView {
     
+    //MARK: - Private Variables
+    
     private var ratingStackView = UIStackView()
     private var ratingInfoStackView = UIStackView()
     private var ratingDetailStackView = UIStackView()
@@ -17,6 +19,8 @@ class RatingsView: UIView {
     private var userNameLabel = UILabel()
     private var ratingStarDisplay = [UIImageView]()
     private var detailRatingReviewTextView = UITextView()
+    
+    //MARK: - Private Methods
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,6 +31,8 @@ class RatingsView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK: - Private Methods
     
     private func populateDataSource() {
         let starFillImage = UIImageView(image: UIImage(systemName: "star.fill")!)
@@ -45,6 +51,8 @@ class RatingsView: UIView {
     private func setupConstraints() {
         
     }
+    
+    //MARK: - Public Methods
     
     public func setup(with model: RatingModel) {
         ratingTitleLabel.text = model.ratingTitle

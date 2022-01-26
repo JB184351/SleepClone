@@ -9,11 +9,17 @@ import UIKit
 
 class SleepStoriesView: UIView {
 
+    //MARK: - Private Variables
+    
     private var tableView: UITableView!
     private var testLabel = UILabel()
     private var sleeepStories = [SleepStoryModel]()
     
+    //MARK: - Public Variables
+    
     public var messageText = String()
+    
+    //MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,6 +34,8 @@ class SleepStoriesView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK: - Private Methods
     
     private func populateDataSource() {
         let sleepStory = SleepStoryModel(image: (UIImage(named: "test")!), title: "Test")
@@ -72,6 +80,8 @@ class SleepStoriesView: UIView {
     }
 }
 
+//MARK: - TableView DataSource
+
 extension SleepStoriesView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -86,6 +96,8 @@ extension SleepStoriesView: UITableViewDataSource {
         return cell
     }
 }
+
+//MARK: - TableView Delegate
 
 extension SleepStoriesView: UITableViewDelegate {
     
