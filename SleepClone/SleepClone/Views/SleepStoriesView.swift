@@ -11,7 +11,7 @@ class SleepStoriesView: UIView {
 
     private var tableView: UITableView!
     private var testLabel = UILabel()
-    private var images = [UIImage]()
+    private var sleeepStories = [SleepStoryModel]()
     
     public var messageText = String()
     
@@ -30,17 +30,21 @@ class SleepStoriesView: UIView {
     }
     
     private func populateDataSource() {
-        images.append(UIImage(named: "test")!)
-        images.append(UIImage(named: "test")!)
-        images.append(UIImage(named: "test")!)
-        images.append(UIImage(named: "test")!)
-        images.append(UIImage(named: "test")!)
-        images.append(UIImage(named: "test")!)
-        images.append(UIImage(named: "test")!)
-        images.append(UIImage(named: "test")!)
-        images.append(UIImage(named: "test")!)
-        images.append(UIImage(named: "test")!)
-        images.append(UIImage(named: "test")!)
+        let sleepStory = SleepStoryModel(image: (UIImage(named: "test")!), title: "Test")
+    
+        sleeepStories.append(sleepStory)
+        sleeepStories.append(sleepStory)
+        sleeepStories.append(sleepStory)
+        sleeepStories.append(sleepStory)
+        sleeepStories.append(sleepStory)
+        sleeepStories.append(sleepStory)
+        sleeepStories.append(sleepStory)
+        sleeepStories.append(sleepStory)
+        sleeepStories.append(sleepStory)
+        sleeepStories.append(sleepStory)
+        sleeepStories.append(sleepStory)
+        sleeepStories.append(sleepStory)
+        sleeepStories.append(sleepStory)
     }
     
     private func setupUI() {
@@ -71,11 +75,11 @@ class SleepStoriesView: UIView {
 extension SleepStoriesView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return images.count
+        return sleeepStories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let sleepStory = images[indexPath.row]
+        let sleepStory = sleeepStories[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "sleepStoriesTableViewCell", for: indexPath) as! SleepStoriesTableViewCell
         cell.setup(with: sleepStory)
