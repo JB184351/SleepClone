@@ -85,9 +85,13 @@ class ViewController: UIViewController {
         let advancedFeaturesView = AdvancedFeaturesView()
         advancedFeaturesView.messageText = "Enjoy advanced features like"
         
-        views.append(sleepStoriesView)
-        views.append(moreSleepStoriesView)
-        views.append(advancedFeaturesView)
+        let ratingsView = RatingsView()
+        ratingsView.messageText = "What our users think about us"
+        
+//        views.append(sleepStoriesView)
+//        views.append(moreSleepStoriesView)
+//        views.append(advancedFeaturesView)
+        views.append(ratingsView)
     }
     
 }

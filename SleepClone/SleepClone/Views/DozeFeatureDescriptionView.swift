@@ -12,8 +12,11 @@ class DozeFeatureDescriptionView: UIView {
     //MARK: - Private Variables
     
     private var stackView = UIStackView()
-    private var headerLabel = UILabel()
-    private var messageLabel = UILabel()
+    
+    //MARK: - Public Variables
+    
+    public var headerLabel = UILabel()
+    public var messageLabel = UILabel()
     
     //MARK: - Init
     
