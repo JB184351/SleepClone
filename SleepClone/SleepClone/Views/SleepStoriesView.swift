@@ -112,13 +112,12 @@ extension SleepStoriesView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         //TODO: Configure Font and spacing
-        let moreMessaingLabel = UILabel()
-        moreMessaingLabel.text = "And many more..."
-        moreMessaingLabel.textAlignment = .left
-        moreMessaingLabel.textColor = .white
+        let moreMessagingLabel = UILabel()
+        moreMessagingLabel.text = "And many more..."
+        moreMessagingLabel.textAlignment = .left
+        moreMessagingLabel.textColor = .white
         
-        
-        return moreMessaingLabel
+        return moreMessagingLabel
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

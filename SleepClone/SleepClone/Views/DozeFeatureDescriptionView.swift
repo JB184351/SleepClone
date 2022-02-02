@@ -38,10 +38,13 @@ class DozeFeatureDescriptionView: UIView {
         stackView.spacing = 50.0
         
         headerLabel.textColor = .white
+        headerLabel.font = .boldSystemFont(ofSize: 26)
+//        headerLabel.font = UIFont(name: "Georgia-Bold", size: 26)
         headerLabel.textAlignment = .center
         
         messageLabel.numberOfLines = 0
         messageLabel.textColor = .white
+        messageLabel.font = UIFont(name: "AvenirNext-Medium", size: 16)
         messageLabel.textAlignment = .center
         
         self.addSubview(stackView)
