@@ -32,7 +32,8 @@ class RatingsTableViewCell: UITableViewCell {
         ratingStackView.axis = .vertical
         ratingStackView.distribution = .fill
         ratingStackView.alignment = .fill
-        ratingStackView.backgroundColor = .gray
+        //TODO: Get actual value for this
+        ratingStackView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.2)
         ratingStackView.spacing = 8
         
         ratingUserInfoStackView.axis = .horizontal
@@ -81,7 +82,6 @@ class RatingsTableViewCell: UITableViewCell {
         self.ratingStarStackView.addArrangedSubview(ratingStarImageView4)
         self.ratingStarStackView.addArrangedSubview(ratingStarImageView5)
         
-//        self.ratingStackView.addArrangedSubview(ratingDetailStackView)
         self.ratingStackView.addArrangedSubview(detailRatingReviewLabel)
         
         setupConstraints()
@@ -94,12 +94,7 @@ class RatingsTableViewCell: UITableViewCell {
         self.ratingStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 8).isActive = true
         self.ratingStackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         self.ratingStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        
-//        self.detailRatingReviewLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
-//        self.detailRatingReviewLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor).isActive = true
-//        self.detailRatingReviewLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor).isActive = true
-//        self.detailRatingReviewLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor).isActive = true
-//        
+               
         self.ratingStarImageView1.widthAnchor.constraint(equalToConstant: 14).isActive = true
         self.ratingStarImageView2.widthAnchor.constraint(equalToConstant: 14).isActive = true
         self.ratingStarImageView3.widthAnchor.constraint(equalToConstant: 14).isActive = true
