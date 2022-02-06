@@ -14,7 +14,7 @@ class SleepStoriesTableViewCell: UITableViewCell {
     private var soundImageView = UIImageView()
     private var soundTitleLabel = UILabel()
     private var playButton = UIButton()
-    private var roundedCornerView = UIView()
+    private var spaceView = UIView()
     private var isPlaying = false
     
     //MARK: - Private Methods
@@ -22,15 +22,20 @@ class SleepStoriesTableViewCell: UITableViewCell {
     private func setupUI() {
         playButton.setImage(UIImage(systemName: "play.circle.fill"), for: .normal)
         playButton.tintColor = .white
+        playButton.frame.size = CGSize(width: 50, height: 50)
         playButton.addTarget(self, action: #selector(buttonAction(_ :)), for: .touchUpInside)
         
         //TODO: Add Correct Font
         soundTitleLabel.textColor = .white
         soundTitleLabel.font = soundTitleLabel.font.withSize(12)
         
-        self.roundedCornerView.addRoundedCorners()
+        //An empty UIView to add spaces between Table View Cells
+        spaceView.backgroundColor = .blue
         
-        self.contentView.addSubview(roundedCornerView)
+        //Got rounded corners working!
+        soundImageView.addRoundedCorners()
+        
+        self.contentView.addSubview(spaceView)
         self.contentView.addSubview(soundImageView)
         self.contentView.addSubview(soundTitleLabel)
         self.contentView.addSubview(playButton)
@@ -46,30 +51,30 @@ class SleepStoriesTableViewCell: UITableViewCell {
     }
     
     private func setupConstraints() {
+        spaceView.translatesAutoresizingMaskIntoConstraints = false
         soundImageView.translatesAutoresizingMaskIntoConstraints = false
         playButton.translatesAutoresizingMaskIntoConstraints = false
-        roundedCornerView.translatesAutoresizingMaskIntoConstraints = false
         soundTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        roundedCornerView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        roundedCornerView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        roundedCornerView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        roundedCornerView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        spaceView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        spaceView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        spaceView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        spaceView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         
-        soundImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        soundImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        soundImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        soundImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        
-        soundTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12).isActive = true
-        soundTitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        soundTitleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 40).isActive = true
-        soundTitleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        soundImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
+        soundImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
+        soundImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        soundImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor,constant: -10).isActive = true
         
         playButton.leadingAnchor.constraint(equalTo: soundImageView.leadingAnchor, constant: self.soundImageView.frame.width / 2).isActive = true
         playButton.trailingAnchor.constraint(equalTo: soundImageView.trailingAnchor).isActive = true
         playButton.topAnchor.constraint(equalTo: soundImageView.topAnchor, constant: soundImageView.frame.height / 2).isActive = true
         playButton.bottomAnchor.constraint(equalTo: soundImageView.bottomAnchor).isActive = true
+        
+        soundTitleLabel.leadingAnchor.constraint(equalTo: self.soundImageView.leadingAnchor, constant: 12).isActive = true
+        soundTitleLabel.trailingAnchor.constraint(equalTo: self.soundImageView.trailingAnchor).isActive = true
+        soundTitleLabel.topAnchor.constraint(equalTo: self.soundImageView.topAnchor, constant: 40).isActive = true
+        soundTitleLabel.bottomAnchor.constraint(equalTo: self.soundImageView.bottomAnchor).isActive = true
     }
     
     //MARK: - Public Methods

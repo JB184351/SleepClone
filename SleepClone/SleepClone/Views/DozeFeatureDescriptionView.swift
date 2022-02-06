@@ -35,7 +35,7 @@ class DozeFeatureDescriptionView: UIView {
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .fill
-        stackView.spacing = 50.0
+        stackView.spacing = 25
         
         headerLabel.textColor = .white
         headerLabel.font = .boldSystemFont(ofSize: 26)
