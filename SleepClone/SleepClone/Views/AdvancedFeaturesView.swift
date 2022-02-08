@@ -48,10 +48,10 @@ class AdvancedFeaturesView: UIView {
     }
     
     private func populateDataSource() {
-        let firstFeature = AdvancedFeatureModel(image: UIImage(systemName: "speaker.wave.3")!, featurename: "3D Voice")
-        let secondFeature = AdvancedFeatureModel(image: UIImage(systemName: "infinity")!, featurename: "Loop Narrations")
-        let thirdFeature = AdvancedFeatureModel(image: UIImage(systemName: "timer")!, featurename: "Sleep Timer")
-        let fourthFeature = AdvancedFeatureModel(image: UIImage(systemName: "moon.circle")!, featurename: "Audio Fusion")
+        let firstFeature = AdvancedFeatureModel(image: UIImage(systemName: "speaker.wave.3")!, featureName: "3D Voice")
+        let secondFeature = AdvancedFeatureModel(image: UIImage(systemName: "infinity")!, featureName: "Loop Narrations")
+        let thirdFeature = AdvancedFeatureModel(image: UIImage(systemName: "timer")!, featureName: "Sleep Timer")
+        let fourthFeature = AdvancedFeatureModel(image: UIImage(systemName: "moon.circle")!, featureName: "Audio Fusion")
         
         advancedFeatures.append(firstFeature)
         advancedFeatures.append(secondFeature)
@@ -104,16 +104,6 @@ extension AdvancedFeaturesView: UITableViewDelegate {
         featureView.messageLabel.text = messageText
         
         return featureView
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        //TODO: Configure Font and spacing
-        let moreMessaingLabel = UILabel()
-        moreMessaingLabel.text = "And many more..."
-        moreMessaingLabel.textAlignment = .left
-        moreMessaingLabel.textColor = .white
-        
-        return moreMessaingLabel
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

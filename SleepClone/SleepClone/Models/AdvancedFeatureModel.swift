@@ -10,5 +10,5 @@ import UIKit
 
 struct AdvancedFeatureModel {
     var image: UIImage
-    var featurename: String
+    var featureName: String
 }

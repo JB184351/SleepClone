@@ -50,7 +50,7 @@ class AdvancedFeaturesTableViewCell: UITableViewCell {
     
     public func setup(with model: AdvancedFeatureModel) {
         advancedFeatureImageView.image = model.image
-        advancedFeatureLabel.text = model.featurename
+        advancedFeatureLabel.text = model.featureName
         setupUI()
     }
     

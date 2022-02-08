@@ -22,7 +22,6 @@ class SleepStoriesTableViewCell: UITableViewCell {
     private func setupUI() {
         playButton.setImage(UIImage(systemName: "play.circle.fill"), for: .normal)
         playButton.tintColor = .white
-        playButton.frame.size = CGSize(width: 50, height: 50)
         playButton.addTarget(self, action: #selector(buttonAction(_ :)), for: .touchUpInside)
         
         //TODO: Add Correct Font

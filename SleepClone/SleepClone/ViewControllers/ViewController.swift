@@ -88,9 +88,9 @@ class ViewController: UIViewController {
         let ratingsView = RatingsView()
         ratingsView.messageText = "What our users think about us"
         
-        views.append(sleepStoriesView)
+//        views.append(sleepStoriesView)
 //        views.append(moreSleepStoriesView)
-//        views.append(advancedFeaturesView)
+        views.append(advancedFeaturesView)
 //        views.append(ratingsView)
     }
     
