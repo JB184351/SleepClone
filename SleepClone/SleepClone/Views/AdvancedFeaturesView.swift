@@ -63,7 +63,7 @@ class AdvancedFeaturesView: UIView {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         self.tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 32).isActive = true
-        self.tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        self.tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -32).isActive = true
         self.tableView.topAnchor.constraint(equalTo: self.topAnchor, constant: 50).isActive = true
         self.tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
