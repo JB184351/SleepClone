@@ -43,7 +43,7 @@ class AdvancedFeaturesTableViewCell: UITableViewCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         advancedFeatureImageView.translatesAutoresizingMaskIntoConstraints = false
         
-        emptyView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: self.frame.width / 3).isActive = true
+        emptyView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: self.frame.width / 4).isActive = true
         emptyView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         emptyView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         emptyView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
