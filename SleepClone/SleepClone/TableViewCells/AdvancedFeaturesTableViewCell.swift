@@ -9,7 +9,7 @@ import UIKit
 
 class AdvancedFeaturesTableViewCell: UITableViewCell {
 
-    //MARK: - Private Variables
+    //MARK: - Private Properties
     
     private var stackView = UIStackView()
     private var emptyView = UIView()

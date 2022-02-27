@@ -9,7 +9,7 @@ import UIKit
 
 class SleepStoriesCell: UICollectionViewCell {
     
-    //MARK: - Private Methods
+    //MARK: - Private Properties
     
     private var someView = UIView()
     

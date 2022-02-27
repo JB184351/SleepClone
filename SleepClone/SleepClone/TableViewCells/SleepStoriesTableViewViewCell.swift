@@ -9,7 +9,7 @@ import UIKit
 
 class SleepStoriesTableViewCell: UITableViewCell {
     
-    //MARK: - Private Variables
+    //MARK: - Private Properties
     
     private var soundImageView = UIImageView()
     private var soundTitleLabel = UILabel()

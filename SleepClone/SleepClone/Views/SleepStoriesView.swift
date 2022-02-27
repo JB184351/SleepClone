@@ -9,13 +9,13 @@ import UIKit
 
 class SleepStoriesView: UIView {
 
-    //MARK: - Private Variables
+    //MARK: - Private Properties
     
     private var tableView: UITableView!
     private var testLabel = UILabel()
     private var sleeepStories = [SleepStoryModel]()
     
-    //MARK: - Public Variables
+    //MARK: - Public Properties
     
     public var messageText = String()
     

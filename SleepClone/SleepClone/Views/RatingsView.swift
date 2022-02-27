@@ -9,11 +9,12 @@ import UIKit
 
 class RatingsView: UIView {
     
-    //MARK: - Private Variables
+    //MARK: - Private Properties
     private var tableView: UITableView!
+    private var timer: Timer!
     private var ratings = [RatingModel]()
     
-    //MARK: - Public Variables
+    //MARK: - Public Properties
     public var messageText = String()
     
     override init(frame: CGRect) {
@@ -21,6 +22,8 @@ class RatingsView: UIView {
         setupUI()
         registerCells()
         populateDataSource()
+        tableView.estimatedRowHeight = 140
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -32,17 +35,23 @@ class RatingsView: UIView {
     //MARK: - Private Methods
     
     private func populateDataSource() {
-        let rating = RatingModel(ratingTitle: "The Best App", userName: "Justin B", detailReview: "this is the very best app and no one can tell me otherwise lolololololoolololololololo0lolololololol")
+        let rating = RatingModel(ratingTitle: "The Best App!", userName: "Sarah P.", detailReview: "The selection of sounds and stories is incredible! The 3D Voice feature is AMAZING! So hypnotic. Can’t wait to see what comes next.")
+        let rating2 = RatingModel(ratingTitle: "Perfect", userName: "Joshua C.", detailReview: "I can’t even express how much I love this app, I like that the background noise that you choose keeps playing even after the story ends. I’m so glad I was recommended this app!")
+        let rating3 = RatingModel(ratingTitle: "I recommend it", userName: "Molly A.", detailReview: "So many awesome options! I love how many different types of stories there are. Particulary fond of the dreamy myths. John’s voice is incredible on those!")
+        let rating4 = RatingModel(ratingTitle: "Amazing", userName: "Barbara L.", detailReview: "Doze puts other sleep apps to bed.This app is so good it leaves me speechless. I don’t know how they do it but I swear the stories make my dreams more interesting.")
+        let rating5 = RatingModel(ratingTitle: "Amazing", userName: "Zoe C.", detailReview: "I love this app. My husband and I fall asleep with it almost every night. We decided the subscription was well worth it. It works!")
         
-        ratings.append(rating)
+//        ratings.append(rating)
+//        ratings.append(rating2)
+//        ratings.append(rating3)
+//        ratings.append(rating4)
+        ratings.append(rating5)
+        
     }
     
     private func setupUI() {
         tableView = UITableView(frame: .zero, style: .grouped)
         tableView.backgroundColor = .blue
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 600
-        
         self.addSubview(tableView)
         setupConstraints()
     }
@@ -59,12 +68,21 @@ class RatingsView: UIView {
     private func registerCells() {
         tableView.register(RatingsTableViewCell.self, forCellReuseIdentifier: "ratingsTableViewCell")
     }
+    
+//    private func updateCells() {
+//        
+//        timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { _ in
+//            guard let rating = self.ratings.randomElement() else { return }
+//        })
+//        
+//        tableView.reloadData()
+//    }
 }
 
 extension RatingsView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ratings.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -90,6 +108,6 @@ extension RatingsView: UITableViewDelegate {
     
     //TODO: - Update to automatically cells to size based on content.
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 140
     }
 }

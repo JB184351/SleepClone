@@ -90,8 +90,8 @@ class ViewController: UIViewController {
         
 //        views.append(sleepStoriesView)
 //        views.append(moreSleepStoriesView)
-        views.append(advancedFeaturesView)
-//        views.append(ratingsView)
+//        views.append(advancedFeaturesView)
+        views.append(ratingsView)
     }
     
 }

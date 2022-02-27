@@ -9,12 +9,12 @@ import UIKit
 
 class AdvancedFeaturesView: UIView {
     
-    //MARK: - Private Variables
+    //MARK: - Private Properties
     
     private var tableView: UITableView!
     private var advancedFeatures = [AdvancedFeatureModel]()
     
-    //MARK: - Public Methods
+    //MARK: - Public Properties
     
     public var messageText = String()
     
