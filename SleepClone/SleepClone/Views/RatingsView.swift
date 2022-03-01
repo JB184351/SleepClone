@@ -23,7 +23,6 @@ class RatingsView: UIView {
         registerCells()
         populateDataSource()
         tableView.estimatedRowHeight = 140
-        tableView.rowHeight = UITableView.automaticDimension
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -41,10 +40,10 @@ class RatingsView: UIView {
         let rating4 = RatingModel(ratingTitle: "Amazing", userName: "Barbara L.", detailReview: "Doze puts other sleep apps to bed.This app is so good it leaves me speechless. I don’t know how they do it but I swear the stories make my dreams more interesting.")
         let rating5 = RatingModel(ratingTitle: "Amazing", userName: "Zoe C.", detailReview: "I love this app. My husband and I fall asleep with it almost every night. We decided the subscription was well worth it. It works!")
         
-//        ratings.append(rating)
-//        ratings.append(rating2)
-//        ratings.append(rating3)
-//        ratings.append(rating4)
+        ratings.append(rating)
+        ratings.append(rating2)
+        ratings.append(rating3)
+        ratings.append(rating4)
         ratings.append(rating5)
         
     }
@@ -82,7 +81,7 @@ class RatingsView: UIView {
 extension RatingsView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return ratings.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -106,8 +105,7 @@ extension RatingsView: UITableViewDelegate {
         return featureView
     }
     
-    //TODO: - Update to automatically cells to size based on content.
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140
+        return UITableView.automaticDimension
     }
 }

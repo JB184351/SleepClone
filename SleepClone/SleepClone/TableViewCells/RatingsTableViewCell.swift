@@ -34,12 +34,12 @@ class RatingsTableViewCell: UITableViewCell {
         ratingStackView.axis = .vertical
         ratingStackView.distribution = .fill
         ratingStackView.alignment = .leading
-        ratingStackView.spacing = 4
+        ratingStackView.spacing = 8
         
         ratingUserInfoStackView.axis = .horizontal
         ratingUserInfoStackView.distribution = .fill
-        ratingUserInfoStackView.alignment = .top
-        ratingUserInfoStackView.spacing = 80
+        ratingUserInfoStackView.alignment = .fill
+        ratingUserInfoStackView.spacing = 120
         
         ratingStarStackView.axis = .horizontal
         ratingStarStackView.distribution = .fillProportionally
@@ -92,14 +92,10 @@ class RatingsTableViewCell: UITableViewCell {
         self.ratingStackView.translatesAutoresizingMaskIntoConstraints = false
         self.ratingUserInfoStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        self.ratingStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
-        self.ratingStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
-        self.ratingStackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        self.ratingStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        
-        self.ratingUserInfoStackView.leadingAnchor.constraint(equalTo: self.ratingStackView.leadingAnchor, constant: 16).isActive = true
-        self.ratingUserInfoStackView.trailingAnchor.constraint(equalTo: self.ratingStackView.trailingAnchor, constant: -16).isActive = true
-        
+        self.ratingStackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 32).isActive = true
+        self.ratingStackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -32).isActive = true
+        self.ratingStackView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 32).isActive = true
+        self.ratingStackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -32).isActive = true
                
         self.ratingStarImageView1.widthAnchor.constraint(equalToConstant: 14).isActive = true
         self.ratingStarImageView2.widthAnchor.constraint(equalToConstant: 14).isActive = true
