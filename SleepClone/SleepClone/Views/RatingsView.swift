@@ -12,7 +12,9 @@ class RatingsView: UIView {
     //MARK: - Private Properties
     private var tableView: UITableView!
     private var timer: Timer!
+    private var isFirstRun = true
     private var ratings = [RatingModel]()
+    private var updatedRating: RatingModel?
     
     //MARK: - Public Properties
     public var messageText = String()
@@ -22,6 +24,7 @@ class RatingsView: UIView {
         setupUI()
         registerCells()
         populateDataSource()
+//        updateCells()
         tableView.estimatedRowHeight = 140
         tableView.dataSource = self
         tableView.delegate = self
@@ -69,12 +72,23 @@ class RatingsView: UIView {
     }
     
 //    private func updateCells() {
-//        
+//        if isFirstRun {
+//            self.updatedRating = ratings[0]
+//        }
+//
+//        var element = 1
+//
 //        timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { _ in
-//            guard let rating = self.ratings.randomElement() else { return }
+//            let rating = self.ratings[element]
+//            self.updatedRating = rating
+//            element += 1
+//            if element == self.ratings.count {
+//                element = 0
+//            }
+//            self.tableView.reloadData()
 //        })
-//        
-//        tableView.reloadData()
+//
+//        isFirstRun = false
 //    }
 }
 
@@ -89,6 +103,7 @@ extension RatingsView: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ratingsTableViewCell", for: indexPath) as! RatingsTableViewCell
         cell.setup(with: rating)
+        isFirstRun = false
         return cell
     }
     

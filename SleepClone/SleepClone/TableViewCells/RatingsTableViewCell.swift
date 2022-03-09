@@ -14,11 +14,7 @@ class RatingsTableViewCell: UITableViewCell {
     private var ratingUserInfoStackView = UIStackView()
     private var ratingStarStackView = UIStackView()
     private var ratingDetailStackView = UIStackView()
-    private var ratingStarImageView1 = UIImageView()
-    private var ratingStarImageView2 = UIImageView()
-    private var ratingStarImageView3 = UIImageView()
-    private var ratingStarImageView4 = UIImageView()
-    private var ratingStarImageView5 = UIImageView()
+    private var ratingStarImageView = UIImageView()
     
     private var ratingTitleLabel = UILabel()
     private var userNameLabel = UILabel()
@@ -33,56 +29,54 @@ class RatingsTableViewCell: UITableViewCell {
         
         ratingStackView.axis = .vertical
         ratingStackView.distribution = .fill
-        ratingStackView.alignment = .leading
-        ratingStackView.spacing = 8
+        ratingStackView.alignment = .fill
+        ratingStackView.spacing = 12
+        ratingStackView.accessibilityIdentifier = "ratingStackView"
         
         ratingUserInfoStackView.axis = .horizontal
-        ratingUserInfoStackView.distribution = .fill
+        ratingUserInfoStackView.distribution = .fillEqually
         ratingUserInfoStackView.alignment = .fill
-        ratingUserInfoStackView.spacing = 120
+        ratingUserInfoStackView.spacing = 8
+        ratingUserInfoStackView.accessibilityIdentifier = "ratingUserInfoStackView"
+        
+        ratingTitleLabel.textColor = .white
+        ratingTitleLabel.textAlignment = .left
+        ratingTitleLabel.font = ratingTitleLabel.font.withSize(16)
+        ratingTitleLabel.accessibilityIdentifier = "ratingTitleLabel"
+        
+        userNameLabel.textColor = .white
+        userNameLabel.textAlignment = .right
+        userNameLabel.font = ratingTitleLabel.font.withSize(16)
+        userNameLabel.accessibilityIdentifier = "userNameLabel"
         
         ratingStarStackView.axis = .horizontal
-        ratingStarStackView.distribution = .fillProportionally
+        ratingStarStackView.distribution = .fill
         ratingStarStackView.alignment = .leading
+        ratingStarStackView.accessibilityIdentifier = "ratingStarStackView"
+        
+        ratingStarImageView.image = UIImage(named: "5starimage")!
+        ratingStarImageView.contentMode = .scaleAspectFit
+        ratingStarImageView.tintColor = .blue
+        ratingStarImageView.accessibilityIdentifier = "ratingStarImageView"
         
         ratingDetailStackView.axis = .vertical
         ratingDetailStackView.distribution = .fill
         ratingDetailStackView.alignment = .fill
-        
-        ratingStarImageView1.image = UIImage(systemName: "star.fill")!
-        ratingStarImageView2.image = UIImage(systemName: "star.fill")!
-        ratingStarImageView3.image = UIImage(systemName: "star.fill")!
-        ratingStarImageView4.image = UIImage(systemName: "star.fill")!
-        ratingStarImageView5.image = UIImage(systemName: "star.fill")!
-        
-        ratingStarImageView1.tintColor = .white
-        ratingStarImageView2.tintColor = .white
-        ratingStarImageView3.tintColor = .white
-        ratingStarImageView4.tintColor = .white
-        ratingStarImageView5.tintColor = .white
-
-        ratingTitleLabel.textColor = .white
-        ratingTitleLabel.font = ratingTitleLabel.font.withSize(16)
-        
-        userNameLabel.textColor = .white
-        userNameLabel.font = ratingTitleLabel.font.withSize(16)
+        ratingDetailStackView.accessibilityIdentifier = "ratingDetailStackView"
         
         detailRatingReviewLabel.textColor = .white
         detailRatingReviewLabel.numberOfLines = 0
+        detailRatingReviewLabel.accessibilityIdentifier = "detailRatingReviewLabel"
         
         self.contentView.addSubview(ratingStackView)
         self.ratingStackView.addArrangedSubview(ratingUserInfoStackView)
         self.ratingUserInfoStackView.addArrangedSubview(ratingTitleLabel)
         self.ratingUserInfoStackView.addArrangedSubview(userNameLabel)
-        self.ratingDetailStackView.addArrangedSubview(detailRatingReviewLabel)
        
+        self.ratingStarStackView.addArrangedSubview(ratingStarImageView)
         self.ratingStackView.addArrangedSubview(ratingStarStackView)
-        self.ratingStarStackView.addArrangedSubview(ratingStarImageView1)
-        self.ratingStarStackView.addArrangedSubview(ratingStarImageView2)
-        self.ratingStarStackView.addArrangedSubview(ratingStarImageView3)
-        self.ratingStarStackView.addArrangedSubview(ratingStarImageView4)
-        self.ratingStarStackView.addArrangedSubview(ratingStarImageView5)
 
+        self.ratingDetailStackView.addArrangedSubview(detailRatingReviewLabel)
         self.ratingStackView.addArrangedSubview(ratingDetailStackView)
         
         setupConstraints()
@@ -90,27 +84,15 @@ class RatingsTableViewCell: UITableViewCell {
     
     private func setupConstraints() {
         self.ratingStackView.translatesAutoresizingMaskIntoConstraints = false
-        self.ratingUserInfoStackView.translatesAutoresizingMaskIntoConstraints = false
         
         self.ratingStackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 32).isActive = true
         self.ratingStackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -32).isActive = true
         self.ratingStackView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 32).isActive = true
         self.ratingStackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -32).isActive = true
-               
-        self.ratingStarImageView1.widthAnchor.constraint(equalToConstant: 14).isActive = true
-        self.ratingStarImageView2.widthAnchor.constraint(equalToConstant: 14).isActive = true
-        self.ratingStarImageView3.widthAnchor.constraint(equalToConstant: 14).isActive = true
-        self.ratingStarImageView4.widthAnchor.constraint(equalToConstant: 14).isActive = true
-        self.ratingStarImageView5.widthAnchor.constraint(equalToConstant: 14).isActive = true
         
-        self.ratingStarImageView1.heightAnchor.constraint(equalToConstant: 14).isActive = true
-        self.ratingStarImageView2.heightAnchor.constraint(equalToConstant: 14).isActive = true
-        self.ratingStarImageView3.heightAnchor.constraint(equalToConstant: 14).isActive = true
-        self.ratingStarImageView4.heightAnchor.constraint(equalToConstant: 14).isActive = true
-        self.ratingStarImageView5.heightAnchor.constraint(equalToConstant: 14).isActive = true
-        
+        self.ratingStarImageView.heightAnchor.constraint(equalToConstant: 14).isActive = true
+
     }
-    
     
     public func setup(with model: RatingModel) {
         ratingTitleLabel.text = model.ratingTitle
