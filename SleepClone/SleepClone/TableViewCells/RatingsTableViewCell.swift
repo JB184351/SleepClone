@@ -23,7 +23,6 @@ class RatingsTableViewCell: UITableViewCell {
     //MARK: - Private Methods
     
     private func setupUI() {
-        //TODO: Get actual value for this
         self.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.2)
         self.addRoundedCorners()
         

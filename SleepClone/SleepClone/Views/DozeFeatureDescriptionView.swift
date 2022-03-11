@@ -39,7 +39,6 @@ class DozeFeatureDescriptionView: UIView {
         
         headerLabel.textColor = .white
         headerLabel.font = .boldSystemFont(ofSize: 26)
-//        headerLabel.font = UIFont(name: "Georgia-Bold", size: 26)
         headerLabel.textAlignment = .center
         
         messageLabel.numberOfLines = 0

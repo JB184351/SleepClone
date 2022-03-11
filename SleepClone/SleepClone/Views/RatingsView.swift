@@ -24,7 +24,7 @@ class RatingsView: UIView {
         setupUI()
         registerCells()
         populateDataSource()
-//        updateCells()
+        updateCells()
         tableView.estimatedRowHeight = 140
         tableView.dataSource = self
         tableView.delegate = self
@@ -71,36 +71,31 @@ class RatingsView: UIView {
         tableView.register(RatingsTableViewCell.self, forCellReuseIdentifier: "ratingsTableViewCell")
     }
     
-//    private func updateCells() {
-//        if isFirstRun {
-//            self.updatedRating = ratings[0]
-//        }
-//
-//        var element = 1
-//
-//        timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { _ in
-//            let rating = self.ratings[element]
-//            self.updatedRating = rating
-//            element += 1
-//            if element == self.ratings.count {
-//                element = 0
-//            }
-//            self.tableView.reloadData()
-//        })
-//
-//        isFirstRun = false
-//    }
+    private func updateCells() {
+        var element = 0
+        
+        updatedRating = isFirstRun ? ratings[0] : ratings[element]
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { _ in
+            let rating = self.ratings[element]
+            self.updatedRating = rating
+            element += 1
+            if element == self.ratings.count {
+                element = 0
+            }
+            UIView.transition(with: self.tableView, duration: 0.5, options: .transitionCrossDissolve, animations: self.tableView.reloadData, completion: nil)
+        })
+    }
 }
 
 extension RatingsView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ratings.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let rating = ratings[indexPath.row]
-        
+        guard let rating = updatedRating else { return UITableViewCell() }
         let cell = tableView.dequeueReusableCell(withIdentifier: "ratingsTableViewCell", for: indexPath) as! RatingsTableViewCell
         cell.setup(with: rating)
         isFirstRun = false
@@ -112,7 +107,6 @@ extension RatingsView: UITableViewDataSource {
 extension RatingsView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        //TODO: Configure Font and spacing
         let featureView = DozeFeatureDescriptionView()
         featureView.headerLabel.text = "Unlock Doze"
         featureView.messageLabel.text = messageText
