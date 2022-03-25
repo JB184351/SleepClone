@@ -29,11 +29,11 @@ class RatingsTableViewCell: UITableViewCell {
         ratingStackView.axis = .vertical
         ratingStackView.distribution = .fill
         ratingStackView.alignment = .fill
-        ratingStackView.spacing = 12
+        ratingStackView.spacing = 8
         ratingStackView.accessibilityIdentifier = "ratingStackView"
         
         ratingUserInfoStackView.axis = .horizontal
-        ratingUserInfoStackView.distribution = .fillEqually
+        ratingUserInfoStackView.distribution = .fill
         ratingUserInfoStackView.alignment = .fill
         ratingUserInfoStackView.spacing = 8
         ratingUserInfoStackView.accessibilityIdentifier = "ratingUserInfoStackView"
@@ -48,19 +48,18 @@ class RatingsTableViewCell: UITableViewCell {
         userNameLabel.font = ratingTitleLabel.font.withSize(16)
         userNameLabel.accessibilityIdentifier = "userNameLabel"
         
-        ratingStarStackView.axis = .horizontal
+        ratingStarStackView.axis = .vertical
         ratingStarStackView.distribution = .fill
         ratingStarStackView.alignment = .leading
         ratingStarStackView.accessibilityIdentifier = "ratingStarStackView"
         
-        ratingStarImageView.image = UIImage(named: "5starimage")!
+        ratingStarImageView.image = UIImage(named: "review_stars")!
         ratingStarImageView.contentMode = .scaleAspectFit
-        ratingStarImageView.tintColor = .blue
         ratingStarImageView.accessibilityIdentifier = "ratingStarImageView"
         
-        ratingDetailStackView.axis = .vertical
+        ratingDetailStackView.axis = .horizontal
         ratingDetailStackView.distribution = .fill
-        ratingDetailStackView.alignment = .fill
+        ratingDetailStackView.alignment = .top
         ratingDetailStackView.accessibilityIdentifier = "ratingDetailStackView"
         
         detailRatingReviewLabel.textColor = .white
@@ -72,25 +71,25 @@ class RatingsTableViewCell: UITableViewCell {
         self.ratingUserInfoStackView.addArrangedSubview(ratingTitleLabel)
         self.ratingUserInfoStackView.addArrangedSubview(userNameLabel)
        
-        self.ratingStarStackView.addArrangedSubview(ratingStarImageView)
         self.ratingStackView.addArrangedSubview(ratingStarStackView)
+        self.ratingStarStackView.addArrangedSubview(ratingStarImageView)
 
-        self.ratingDetailStackView.addArrangedSubview(detailRatingReviewLabel)
         self.ratingStackView.addArrangedSubview(ratingDetailStackView)
+        self.ratingDetailStackView.addArrangedSubview(detailRatingReviewLabel)
         
         setupConstraints()
     }
     
     private func setupConstraints() {
         self.ratingStackView.translatesAutoresizingMaskIntoConstraints = false
+        self.ratingStarImageView.translatesAutoresizingMaskIntoConstraints = false
         
         self.ratingStackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 32).isActive = true
         self.ratingStackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -32).isActive = true
         self.ratingStackView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 32).isActive = true
         self.ratingStackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -32).isActive = true
         
-        self.ratingStarImageView.heightAnchor.constraint(equalToConstant: 14).isActive = true
-
+        self.ratingStarImageView.heightAnchor.constraint(equalToConstant: 15).isActive = true
     }
     
     public func setup(with model: RatingModel) {
