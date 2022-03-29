@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30FC21592786AB0D00BA00AF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC21582786AB0D00BA00AF /* Extensions.swift */; };
+		C20416CE279902C0002925A9 /* DozeFeatureDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20416CD279902C0002925A9 /* DozeFeatureDescriptionView.swift */; };
 		C212F47227651D260030FFC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C212F47127651D260030FFC7 /* AppDelegate.swift */; };
 		C212F47427651D260030FFC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C212F47327651D260030FFC7 /* SceneDelegate.swift */; };
 		C212F47627651D260030FFC7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C212F47527651D260030FFC7 /* ViewController.swift */; };
@@ -19,6 +21,16 @@
 		C217E39B2769BCCB002143A4 /* SongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C217E39A2769BCCB002143A4 /* SongsViewController.swift */; };
 		C217E39D2769BCEB002143A4 /* AdvancedFeaturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C217E39C2769BCEB002143A4 /* AdvancedFeaturesViewController.swift */; };
 		C217E39F2769BD08002143A4 /* RatingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C217E39E2769BD08002143A4 /* RatingsViewController.swift */; };
+		C22B9C29277F8797002AEE31 /* SleepStoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22B9C28277F8797002AEE31 /* SleepStoriesView.swift */; };
+		C22B9C2E2780E4E3002AEE31 /* SleepStoriesTableViewViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22B9C2D2780E4E3002AEE31 /* SleepStoriesTableViewViewCell.swift */; };
+		C27A43C327711F5900E1A846 /* SleepStoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A43C227711F5900E1A846 /* SleepStoriesCell.swift */; };
+		C2A321A527A383F3007A325A /* RatingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A321A427A383F3007A325A /* RatingsTableViewCell.swift */; };
+		C2D93C6C279F877A000156A4 /* AdvancedFeaturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D93C6B279F877A000156A4 /* AdvancedFeaturesView.swift */; };
+		C2D93C6E279F87A5000156A4 /* AdvancedFeaturesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D93C6D279F87A5000156A4 /* AdvancedFeaturesTableViewCell.swift */; };
+		C2D93C70279F8B5A000156A4 /* AdvancedFeatureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D93C6F279F8B5A000156A4 /* AdvancedFeatureModel.swift */; };
+		C2D93C73279F967F000156A4 /* RatingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D93C72279F967F000156A4 /* RatingsView.swift */; };
+		C2D93C75279F98BF000156A4 /* RatingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D93C74279F98BF000156A4 /* RatingModel.swift */; };
+		C2D93C77279F996A000156A4 /* SleepStoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D93C76279F996A000156A4 /* SleepStoryModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		30FC21582786AB0D00BA00AF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = TableViewCells/Extensions.swift; sourceTree = "<group>"; };
+		C20416CD279902C0002925A9 /* DozeFeatureDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DozeFeatureDescriptionView.swift; sourceTree = "<group>"; };
 		C212F46E27651D260030FFC7 /* SleepClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C212F47127651D260030FFC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C212F47327651D260030FFC7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +69,16 @@
 		C217E39A2769BCCB002143A4 /* SongsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsViewController.swift; sourceTree = "<group>"; };
 		C217E39C2769BCEB002143A4 /* AdvancedFeaturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedFeaturesViewController.swift; sourceTree = "<group>"; };
 		C217E39E2769BD08002143A4 /* RatingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RatingsViewController.swift; path = SleepClone/RatingsViewController.swift; sourceTree = SOURCE_ROOT; };
+		C22B9C28277F8797002AEE31 /* SleepStoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStoriesView.swift; sourceTree = "<group>"; };
+		C22B9C2D2780E4E3002AEE31 /* SleepStoriesTableViewViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStoriesTableViewViewCell.swift; sourceTree = "<group>"; };
+		C27A43C227711F5900E1A846 /* SleepStoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStoriesCell.swift; sourceTree = "<group>"; };
+		C2A321A427A383F3007A325A /* RatingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsTableViewCell.swift; sourceTree = "<group>"; };
+		C2D93C6B279F877A000156A4 /* AdvancedFeaturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedFeaturesView.swift; sourceTree = "<group>"; };
+		C2D93C6D279F87A5000156A4 /* AdvancedFeaturesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedFeaturesTableViewCell.swift; sourceTree = "<group>"; };
+		C2D93C6F279F8B5A000156A4 /* AdvancedFeatureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedFeatureModel.swift; sourceTree = "<group>"; };
+		C2D93C72279F967F000156A4 /* RatingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsView.swift; sourceTree = "<group>"; };
+		C2D93C74279F98BF000156A4 /* RatingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingModel.swift; sourceTree = "<group>"; };
+		C2D93C76279F996A000156A4 /* SleepStoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStoryModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +129,13 @@
 		C212F47027651D260030FFC7 /* SleepClone */ = {
 			isa = PBXGroup;
 			children = (
+				30FC21582786AB0D00BA00AF /* Extensions.swift */,
 				C212F47127651D260030FFC7 /* AppDelegate.swift */,
 				C212F47327651D260030FFC7 /* SceneDelegate.swift */,
+				C2D93C71279F8B68000156A4 /* Models */,
+				C22B9C302780E501002AEE31 /* CollectionViewCells */,
+				C22B9C2F2780E4F2002AEE31 /* TableViewCells */,
+				C22B9C2A2780E1BE002AEE31 /* Views */,
 				C217E3992769BCA1002143A4 /* ViewControllers */,
 				C212F47A27651D270030FFC7 /* Assets.xcassets */,
 				C212F47C27651D270030FFC7 /* LaunchScreen.storyboard */,
@@ -142,6 +171,45 @@
 				C217E39E2769BD08002143A4 /* RatingsViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C22B9C2A2780E1BE002AEE31 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C22B9C28277F8797002AEE31 /* SleepStoriesView.swift */,
+				C2D93C6B279F877A000156A4 /* AdvancedFeaturesView.swift */,
+				C2D93C72279F967F000156A4 /* RatingsView.swift */,
+				C20416CD279902C0002925A9 /* DozeFeatureDescriptionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C22B9C2F2780E4F2002AEE31 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				C22B9C2D2780E4E3002AEE31 /* SleepStoriesTableViewViewCell.swift */,
+				C2A321A427A383F3007A325A /* RatingsTableViewCell.swift */,
+				C2D93C6D279F87A5000156A4 /* AdvancedFeaturesTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		C22B9C302780E501002AEE31 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				C27A43C227711F5900E1A846 /* SleepStoriesCell.swift */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		C2D93C71279F8B68000156A4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C2D93C6F279F8B5A000156A4 /* AdvancedFeatureModel.swift */,
+				C2D93C74279F98BF000156A4 /* RatingModel.swift */,
+				C2D93C76279F996A000156A4 /* SleepStoryModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,13 +342,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2A321A527A383F3007A325A /* RatingsTableViewCell.swift in Sources */,
+				C20416CE279902C0002925A9 /* DozeFeatureDescriptionView.swift in Sources */,
 				C217E3982769BC99002143A4 /* SleepStoriesViewController.swift in Sources */,
+				C22B9C2E2780E4E3002AEE31 /* SleepStoriesTableViewViewCell.swift in Sources */,
 				C212F47627651D260030FFC7 /* ViewController.swift in Sources */,
 				C217E39F2769BD08002143A4 /* RatingsViewController.swift in Sources */,
+				C2D93C73279F967F000156A4 /* RatingsView.swift in Sources */,
+				C27A43C327711F5900E1A846 /* SleepStoriesCell.swift in Sources */,
 				C217E39B2769BCCB002143A4 /* SongsViewController.swift in Sources */,
+				C2D93C6E279F87A5000156A4 /* AdvancedFeaturesTableViewCell.swift in Sources */,
+				C2D93C77279F996A000156A4 /* SleepStoryModel.swift in Sources */,
+				C2D93C70279F8B5A000156A4 /* AdvancedFeatureModel.swift in Sources */,
+				C22B9C29277F8797002AEE31 /* SleepStoriesView.swift in Sources */,
+				30FC21592786AB0D00BA00AF /* Extensions.swift in Sources */,
+				C2D93C75279F98BF000156A4 /* RatingModel.swift in Sources */,
 				C212F47227651D260030FFC7 /* AppDelegate.swift in Sources */,
 				C212F47427651D260030FFC7 /* SceneDelegate.swift in Sources */,
 				C217E39D2769BCEB002143A4 /* AdvancedFeaturesViewController.swift in Sources */,
+				C2D93C6C279F877A000156A4 /* AdvancedFeaturesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

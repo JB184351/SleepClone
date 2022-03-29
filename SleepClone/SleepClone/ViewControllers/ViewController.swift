@@ -7,125 +7,122 @@
 
 import UIKit
 
-//protocol PageDelegate: AnyObject {
-//    func didUpdatePageIndicator()
-//}
-
 class ViewController: UIViewController {
     
-    private var pageViewController =  UIPageViewController()
+    //MARK: - Private Variables
+    
     private var allViewControllers = [UIViewController]()
+    private var collectionView: UICollectionView!
     private var pageControl = UIPageControl()
+    private var views: [UIView] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         populateDataSource()
-        setupPageViewController()
-        setupPageControl()
+        pageControl.numberOfPages = views.count
+        setupCollectionView()
+        registerCells()
+        collectionView.reloadData()
     }
     
-    private func setupPageViewController() {
-        self.pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+    //MARK: - Private Methods
+    
+    private func setupCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: self.view.frame.width, height: 500)
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        layout.scrollDirection = .horizontal
         
-        pageViewController.delegate = self
-        pageViewController.dataSource = self
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
-        self.pageViewController.view.backgroundColor = .clear
+        self.view.addSubview(collectionView)
+        self.collectionView.addSubview(pageControl)
         
-        // Remember to add to subview before adding constraints
-        self.view.addSubview(pageControl)
-        self.pageControl.addSubview(pageViewController.view)
+        pageControl.backgroundColor = .clear
+        
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
         
         setupConstraints()
         
-        self.addChild(self.pageViewController)
+        self.collectionView.isPagingEnabled = true
+        collectionView.contentOffset = .zero
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.contentInsetAdjustmentBehavior = .never
         
-        self.pageViewController.didMove(toParent: self)
-        
-        if let firstViewController = allViewControllers.first {
-            self.pageViewController.setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
-        }
+        self.collectionView.backgroundColor = .blue
     }
     
-    func setupConstraints() {
-        self.pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
+    private func setupConstraints() {
+        self.collectionView.translatesAutoresizingMaskIntoConstraints = false
         self.pageControl.translatesAutoresizingMaskIntoConstraints = false
         
-        self.pageViewController.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        self.pageViewController.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        self.pageViewController.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        self.pageViewController.view.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        self.collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        self.collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        self.collectionView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        self.collectionView.heightAnchor.constraint(equalToConstant: 500).isActive = true
         
-        self.pageControl.leadingAnchor.constraint(equalTo: self.pageViewController.view.leadingAnchor).isActive = true
-        self.pageControl.trailingAnchor.constraint(equalTo: self.pageViewController.view.trailingAnchor).isActive = true
-        self.pageControl.bottomAnchor.constraint(equalTo: self.pageViewController.view.bottomAnchor).isActive = true
-        self.pageControl.topAnchor.constraint(equalTo: self.pageViewController.view.topAnchor, constant: 50).isActive = true
+        self.pageControl.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        self.pageControl.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        self.pageControl.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        self.pageControl.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        
     }
     
-    func setupPageControl() {
-        pageControl.backgroundColor = .red
+    private func registerCells() {
+        collectionView.register(SleepStoriesCell.self, forCellWithReuseIdentifier: "sleepStoriesCell")
     }
     
-    func populateDataSource() {
-        let sleepViewController = SleepStoriesViewController()
-        let songsViewController = SongsViewController()
-        let advancedFeaturesViewController = AdvancedFeaturesViewController()
-        let ratingsViewController = RatingsViewController()
+    private func populateDataSource() {
+        let sleepStoriesView = SleepStoriesView()
+        sleepStoriesView.messageText = "Doze off with +100 sleep stories and mediations updated on a weekly basis."
         
-        allViewControllers.append(sleepViewController)
-        allViewControllers.append(songsViewController)
-        allViewControllers.append(advancedFeaturesViewController)
-        allViewControllers.append(ratingsViewController)
+        let moreSleepStoriesView = SleepStoriesView()
+        moreSleepStoriesView.messageText = "Relax your body with +150 soothing music and nature sounds. Weekly new updates."
+        
+        let advancedFeaturesView = AdvancedFeaturesView()
+        advancedFeaturesView.messageText = "Enjoy advanced features like"
+        
+        let ratingsView = RatingsView()
+        ratingsView.messageText = "What our users think about us"
+        
+        views.append(sleepStoriesView)
+        views.append(moreSleepStoriesView)
+        views.append(advancedFeaturesView)
+        views.append(ratingsView)
+    }
+    
+}
+
+//MARK: - CollectionView DataSource
+
+extension ViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        views.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let view = views[indexPath.row]
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sleepStoriesCell", for: indexPath) as! SleepStoriesCell
+        cell.setup(with: view)
+        return cell
     }
     
     
 }
 
-extension ViewController: UIPageViewControllerDataSource {
-    
-    func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return allViewControllers.count
-    }
-    
-    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        return 0
-    }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let currentIndex = allViewControllers.firstIndex(of: viewController) else {
-            return nil
-        }
-        
-        let previousIndex = currentIndex - 1
-        
-        guard previousIndex >= 0 else {
-            return nil
-        }
-        
-        guard allViewControllers.count > previousIndex else {
-            return nil
-        }
-        
-        return allViewControllers[previousIndex]
-    }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let currentIndex = allViewControllers.firstIndex(of: viewController) else {
-            return nil
-        }
-        
-        let nextIndex = currentIndex + 1
-        
-        guard allViewControllers.count > nextIndex else {
-            return nil
-        }
-        
-        return allViewControllers[nextIndex]
-    }
-    
-}
+//MARK: - CollectionView Delegate
 
-extension ViewController: UIPageViewControllerDelegate {
+extension ViewController: UICollectionViewDelegate {
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let width = scrollView.frame.width - (scrollView.contentInset.left * 2)
+        let index = scrollView.contentOffset.x / width
+        let roundedIndex = round(index)
+        self.pageControl.currentPage = Int(roundedIndex)
+    }
 }
-
