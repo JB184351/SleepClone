@@ -31,6 +31,7 @@
 		C2D93C73279F967F000156A4 /* RatingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D93C72279F967F000156A4 /* RatingsView.swift */; };
 		C2D93C75279F98BF000156A4 /* RatingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D93C74279F98BF000156A4 /* RatingModel.swift */; };
 		C2D93C77279F996A000156A4 /* SleepStoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D93C76279F996A000156A4 /* SleepStoryModel.swift */; };
+		C2FA17BF27FD1D2D00B30583 /* PurchaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FA17BE27FD1D2D00B30583 /* PurchaseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		C2D93C72279F967F000156A4 /* RatingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsView.swift; sourceTree = "<group>"; };
 		C2D93C74279F98BF000156A4 /* RatingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingModel.swift; sourceTree = "<group>"; };
 		C2D93C76279F996A000156A4 /* SleepStoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStoryModel.swift; sourceTree = "<group>"; };
+		C2FA17BE27FD1D2D00B30583 /* PurchaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PurchaseView.swift; path = SleepClone/Views/PurchaseView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 				C2D93C6B279F877A000156A4 /* AdvancedFeaturesView.swift */,
 				C2D93C72279F967F000156A4 /* RatingsView.swift */,
 				C20416CD279902C0002925A9 /* DozeFeatureDescriptionView.swift */,
+				C2FA17BE27FD1D2D00B30583 /* PurchaseView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				C2A321A527A383F3007A325A /* RatingsTableViewCell.swift in Sources */,
 				C20416CE279902C0002925A9 /* DozeFeatureDescriptionView.swift in Sources */,
 				C217E3982769BC99002143A4 /* SleepStoriesViewController.swift in Sources */,
+				C2FA17BF27FD1D2D00B30583 /* PurchaseView.swift in Sources */,
 				C22B9C2E2780E4E3002AEE31 /* SleepStoriesTableViewViewCell.swift in Sources */,
 				C212F47627651D260030FFC7 /* ViewController.swift in Sources */,
 				C217E39F2769BD08002143A4 /* RatingsViewController.swift in Sources */,

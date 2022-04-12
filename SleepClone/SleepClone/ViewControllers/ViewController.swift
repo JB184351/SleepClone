@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     
     private var allViewControllers = [UIViewController]()
     private var collectionView: UICollectionView!
+    private var purchaseView = PurchaseView()
     private var pageControl = UIPageControl()
     private var views: [UIView] = []
     
@@ -20,14 +21,18 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         populateDataSource()
         pageControl.numberOfPages = views.count
-        setupCollectionView()
+        setupUI()
         registerCells()
         collectionView.reloadData()
     }
     
+    override func viewDidLayoutSubviews() {
+        
+    }
+    
     //MARK: - Private Methods
     
-    private func setupCollectionView() {
+    private func setupUI() {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: self.view.frame.width, height: 500)
         layout.minimumLineSpacing = 0
@@ -37,6 +42,7 @@ class ViewController: UIViewController {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
         self.view.addSubview(collectionView)
+        self.view.addSubview(purchaseView)
         self.collectionView.addSubview(pageControl)
         
         pageControl.backgroundColor = .clear
@@ -58,6 +64,7 @@ class ViewController: UIViewController {
     private func setupConstraints() {
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
         self.pageControl.translatesAutoresizingMaskIntoConstraints = false
+        self.purchaseView.translatesAutoresizingMaskIntoConstraints = false
         
         self.collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         self.collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
@@ -68,6 +75,11 @@ class ViewController: UIViewController {
         self.pageControl.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         self.pageControl.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
         self.pageControl.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        
+        self.purchaseView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        self.purchaseView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        self.purchaseView.topAnchor.constraint(equalTo: self.collectionView.bottomAnchor).isActive = true
+        self.purchaseView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         
     }
     
