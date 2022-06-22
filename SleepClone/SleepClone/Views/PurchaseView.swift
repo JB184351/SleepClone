@@ -65,10 +65,11 @@ class PurchaseView: UIView {
         purchaseSubscriptionButton.addRoundedCorners()
         
         moreOptionsButton.setTitle("More Options", for: .normal)
+        moreOptionsButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         moreOptionsButton.setTitleColor(.black, for: .normal)
         
         self.addSubview(stackView)
-        self.stackView.addArrangedSubview(timePeriodSegmentControl)
+        self.addSubview(timePeriodSegmentControl)
         self.stackView.addArrangedSubview(purchasePriceLabel)
         self.stackView.addArrangedSubview(priceDescriptionLabel)
         self.stackView.addArrangedSubview(purchaseSubscriptionButton)
@@ -82,16 +83,19 @@ class PurchaseView: UIView {
         self.timePeriodSegmentControl.translatesAutoresizingMaskIntoConstraints = false
         self.purchaseSubscriptionButton.translatesAutoresizingMaskIntoConstraints = false
         
+        self.timePeriodSegmentControl.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
+        self.timePeriodSegmentControl.bottomAnchor.constraint(equalTo: self.stackView.topAnchor, constant: -8).isActive = true
+        self.timePeriodSegmentControl.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = true
+        self.timePeriodSegmentControl.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8).isActive = true
+        
+        self.timePeriodSegmentControl.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        self.purchaseSubscriptionButton.heightAnchor.constraint(equalTo: self.timePeriodSegmentControl.heightAnchor, multiplier: 1.25).isActive = true
+        self.purchaseSubscriptionButton.widthAnchor.constraint(equalTo: self.timePeriodSegmentControl.widthAnchor, multiplier: 0.95).isActive = true
+        
         self.stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = true
         self.stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8).isActive = true
-        self.stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
         self.stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
-        
-        self.timePeriodSegmentControl.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        self.timePeriodSegmentControl.widthAnchor.constraint(equalToConstant: 400).isActive = true
-        
-        self.purchaseSubscriptionButton.heightAnchor.constraint(equalToConstant: self.frame.size.height * 0.10).isActive = true
-        self.purchaseSubscriptionButton.widthAnchor.constraint(equalTo: self.timePeriodSegmentControl.widthAnchor, multiplier: 0.95).isActive = true
     }
     
     @objc private func subscriptionChange() {

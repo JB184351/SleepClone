@@ -69,7 +69,7 @@ class ViewController: UIViewController {
         self.collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         self.collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         self.collectionView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        self.collectionView.heightAnchor.constraint(equalToConstant: 500).isActive = true
+        self.collectionView.heightAnchor.constraint(equalToConstant: self.view.frame.height * 0.60).isActive = true
         
         self.pageControl.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         self.pageControl.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
@@ -81,6 +81,7 @@ class ViewController: UIViewController {
         self.purchaseView.topAnchor.constraint(equalTo: self.collectionView.bottomAnchor).isActive = true
         self.purchaseView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         
+        self.purchaseView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.40).isActive = true
     }
     
     private func registerCells() {
